@@ -181,11 +181,10 @@
 #define PM_CLOCK_GPIO_1_M       (1 << PM_CLOCK_GPIO_1_S)
 #define PM_CLOCK_GPIO_2_S       14
 #define PM_CLOCK_GPIO_2_M       (1 << PM_CLOCK_GPIO_2_S)
-#define PM_CLOCK_ANALOG_REG_S   15
-#define PM_CLOCK_ANALOG_REG_M   (1 << PM_CLOCK_ANALOG_REG_S)
+#define PM_CLOCK_ANALOG_REGS_S  15
+#define PM_CLOCK_ANALOG_REGS_M  (1 << PM_CLOCK_ANALOG_REGS_S)
 #define PM_CLOCK_GPIO_IRQ_S     16
 #define PM_CLOCK_GPIO_IRQ_M     (1 << PM_CLOCK_GPIO_IRQ_S)
-
 // Timer connection to PM multiplexor controling timer inputs
 //
 #define PM_TIMER32_0_INDEX      0
@@ -221,18 +220,20 @@
 #define EPIC_WDT_DOM3_INDEX         17
 #define EPIC_WDT_SPIFI_INDEX        18
 #define EPIC_WDT_EEPROM_INDEX       19
-#define EPIC_DMA_GLB_ERR_INDEX      20
-#define EPIC_DMA_CHANNELS_INDEX     21
-#define EPIC_FREQ_MON_INDEX         22
-#define EPIC_PVD_AVCC_UNDER         23
-#define EPIC_PVD_AVCC_OVER          24
-#define EPIC_PVD_VCC_UNDER          25
-#define EPIC_PVD_VCC_OVER           26
-#define EPIC_BATTERY_NON_GOOD       27
+#define EPIC_DMA_INDEX              20
+#define EPIC_FREQ_MON_INDEX         21
+#define EPIC_PVD_AVCC_UNDER         22
+#define EPIC_PVD_AVCC_OVER          23
+#define EPIC_PVD_VCC_UNDER          24
+#define EPIC_PVD_VCC_OVER           25
+#define EPIC_BATTERY_NON_GOOD       26
+#define EPIC_BOR_INDEX              27
+#define EPIC_TSENS_INDEX            28
 
-#define EPIC_BOR_INDEX              28
-#define EPIC_TSENS_INDEX            29
-#define EPIC_ADC_INDEX              30
+#define EPIC_ADC_INDEX              29
+#define EPIC_DAC_0_INDEX            30
+#define EPIC_DAC_1_INDEX            31
+
 
 // DMA request lines
 //

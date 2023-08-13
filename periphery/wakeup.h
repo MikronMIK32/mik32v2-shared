@@ -28,6 +28,8 @@
 #define WU_CLOCKS_BU_ADJ_LSI32K_S          2
 #define WU_CLOCKS_BU_ADJ_LSI32K_M          (0xFF << WU_CLOCKS_BU_ADJ_LSI32K_S)
 #define WU_CLOCKS_BU_ADJ_LSI32K(v)         (((v) << WU_CLOCKS_BU_ADJ_LSI32K_S) & WU_CLOCKS_BU_ADJ_LSI32K_M)
+#define WU_CLOCKS_BU_ADJ_LSI32K_S          2
+#define WU_CLOCKS_BU_ADJ_LSI32K_M          (0xFF << WU_CLOCKS_BU_ADJ_LSI32K_S)
 #define WU_CLOCKS_BU_RTC_CLK_MUX_S         10
 #define WU_CLOCKS_BU_RTC_CLK_MUX_M         (0x3 << WU_CLOCKS_BU_RTC_CLK_MUX_S)
 #define WU_CLOCKS_BU_RTC_CLK_MUX_LSI32K_M  (0x1 << WU_CLOCKS_BU_RTC_CLK_MUX_S)
@@ -36,8 +38,6 @@
 #define WU_CLOCKS_SYS_OSC32M_PD_S           0
 #define WU_CLOCKS_SYS_HSI32M_PD_S           1
 #define WU_CLOCKS_SYS_ADJ_HSI32M_S          2
-#define WU_CLOCKS_SYS_ADJ_HSI32M_M          (0xFF << WU_CLOCKS_SYS_ADJ_HSI32M_S)
-#define WU_CLOCKS_SYS_ADJ_HSI32M(v)         (((v) << WU_CLOCKS_SYS_ADJ_HSI32M_S) & WU_CLOCKS_SYS_ADJ_HSI32M_M)
 
 #define WU_MASK_WAKEUP_RTC_S                0
 #define WU_MASK_WAKEUP_EXT_S                1

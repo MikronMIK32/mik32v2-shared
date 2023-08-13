@@ -68,8 +68,6 @@
 #define DMA_CLEAR_IRQ_S                     0
 #define DMA_STATUS_ERROR_S                  2*DMA_CHANNEL_COUNT
 #define DMA_STATUS_ERROR_M                  (DMA_CHANNEL_M << DMA_STATUS_ERROR_S)
-#define DMA_STATUS_CURRENT_VALUE_S          3*DMA_CHANNEL_COUNT
-#define DMA_STATUS_CURRENT_VALUE_M          (1 << DMA_STATUS_CURRENT_VALUE_S)
 
 #define DMA_CONTROL_CLEAR_LOCAL_IRQ_S       0
 #define DMA_CONTROL_CLEAR_LOCAL_IRQ_M       (DMA_CHANNEL_M << DMA_CONTROL_CLEAR_LOCAL_IRQ_S)
@@ -91,17 +89,17 @@
     typedef struct
     {
 
-        volatile uint32_t DESTINATIONS;  // 0x00
-        volatile uint32_t SOURCE;        // 0x04
-        volatile uint32_t LEN;          // 0x08        
-        volatile uint32_t CONFIG;        // 0x0c
-    } DMA_CHANNEL_TypeDef;
+        volatile uint32_t DESTINATIONS ;  // 0x00
+        volatile uint32_t SOURCE ;        // 0x04
+        volatile uint32_t LEN  ;          // 0x08        
+        volatile uint32_t CONFIG ;        // 0x0c
+    } DMA_CHANNEL_TypeDef  ;
     
     typedef struct
     { 
     
         DMA_CHANNEL_TypeDef CHANNELS[DMA_CHANNEL_COUNT];
-        volatile uint32_t CONTROL;  // 0x40
+        volatile uint32_t ConfigStatus ;  // 0x80
             
     } DMA_CONFIG_TypeDef;
 #endif

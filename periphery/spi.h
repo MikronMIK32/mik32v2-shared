@@ -31,8 +31,6 @@
 #define SPI_CONFIG_REF_CLK_S		8
 #define SPI_CONFIG_REF_CLK_M		(1 << SPI_CONFIG_REF_CLK_S)
 //
-#define SPI_CONFIG_DATA_SZ_S		6
-//
 #define SPI_CONFIG_BAUD_RATE_DIV_S		3
 #define SPI_CONFIG_BAUD_RATE_DIV_M		(0x7 << SPI_CONFIG_BAUD_RATE_DIV_S)
 #define SPI_CONFIG_BAUD_RATE_DIV_2_M	(0x0 << SPI_CONFIG_BAUD_RATE_DIV_S)
@@ -56,23 +54,8 @@
 #define SPI_CONFIG_SLAVE_M				(0 << SPI_CONFIG_MODE_SEL_S)
 
 
-#define SPI_ENABLE_CLEAR_RX_FIFO_S      3
-#define SPI_ENABLE_CLEAR_RX_FIFO_M      (1 << SPI_ENABLE_CLEAR_RX_FIFO_S)
-#define SPI_ENABLE_CLEAR_TX_FIFO_S      2
-#define SPI_ENABLE_CLEAR_TX_FIFO_M      (1 << SPI_ENABLE_CLEAR_TX_FIFO_S)
 #define SPI_ENABLE_S		0
 #define SPI_ENABLE_M		(1 << SPI_ENABLE_S)
-
-
-#define SPI_DELAY_BTWN_S            16
-#define SPI_DELAY_BTWN_M            (0xFF << SPI_DELAY_BTWN_S)
-#define SPI_DELAY_BTWN(v)           (((v) << SPI_DELAY_BTWN_S) & SPI_DELAY_BTWN_M)
-#define SPI_DELAY_AFTER_S           8
-#define SPI_DELAY_AFTER_M           (0xFF << SPI_DELAY_AFTER_S)
-#define SPI_DELAY_AFTER(v)          (((v) << SPI_DELAY_AFTER_S) & SPI_DELAY_AFTER_M)
-#define SPI_DELAY_INIT_S            0
-#define SPI_DELAY_INIT_M            (0xFF << SPI_DELAY_INIT_S)
-#define SPI_DELAY_INIT(v)           (((v) << SPI_DELAY_INIT_S) & SPI_DELAY_INIT_M)
 
 
 #define SPI_RX_OVERFLOW_S		0

@@ -11,15 +11,14 @@
 #define DAC_CFG_EXTEN_S         10
 #define DAC_CFG_EXTEN_M         (1 << DAC_CFG_EXTEN_S)
 #define DAC_EXTPAD_EN_S         11
-
+#define DAC_EMPTY_READ_S        12
 
 
 
 #define TSENS_NPD_S             0
 #define TSENS_NPD_CLK_S         1
 #define TSENS_NRST_S            2
-#define TSENS_TRIM_S            3
-#define TSENS_DIV               13
+#define TSENS_DIV               5
 
 #define TSENS_IRQ_EOS_S         3
 #define TSENS_IRQ_HI_S          4
@@ -36,7 +35,7 @@
 #define TSENS_LOW_THRESHOLD_S   10
 
  
-#define TSENS_VALUE(i)          (uint32_t)((i+273.15)*1024/619.2)
+#define TSENS_VALUE(i)          (uint32_t)(4096/((10.3*622)/(i+273.15)-10.3 +1))
 
 #define ADC_EN_S                0
 #define ADC_RESETn_S            1
@@ -44,18 +43,12 @@
 #define ADC_EXTPAD_EN_S         3
 #define ADC_SEL_S               4
 #define ADC_COS_S               7
+#define ADC_SAH_TIME            8
 
 #define REF_CLB_VCOEF_S         0
 #define REF_CLB_ICOEF_S         4
 #define REF_CLB_EN_S            8
 
-#define TEST_DIG_MUX_COV_LDO_M  (0<<9)
-#define TEST_DIG_MUX_BATON_M    (1<<9)
-#define TEST_DIG_MUX_BOR_M      (2<<9)
-#define TEST_DIG_MUX_PGL_BU_M   (3<<9)
-#define TEST_DIG_MUX_POR_M      (4<<9)
-#define TEST_DIG_MUX_BGO_M      (5<<9)
-#define TEST_DIG_MUX_PGL_M      (6<<9)
 
 #ifndef _ASSEMBLER_
     #include <inttypes.h>
@@ -80,16 +73,13 @@
         volatile uint32_t       TSENS_CLEAR_IRQ;
         volatile uint32_t       TSENS_VALUE;
         volatile uint32_t       TSENS_SINGLE;
-        volatile uint32_t       TSENS_CONTINUOUS;
+        volatile uint32_t       TSENS_CONTINIUS;
         volatile uint32_t       REFV_CONFIG;
         volatile uint32_t       ADC_CONFIG;
-        volatile uint32_t       ADC_CONTINUOUS;
+        volatile uint32_t       ADC_CONTINIUS;
         volatile uint32_t       ADC_SINGLE;
         volatile uint32_t       ADC_VALID;
         volatile uint32_t       ADC_VALUE;
-        volatile uint32_t       TEST_MUX;
-        
-        
     } ANALOG_REG_TypeDef;
     
 #endif
