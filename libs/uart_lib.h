@@ -9,7 +9,6 @@
 #include <stdbool.h>
 
 #include "uart.h"
-#include "mcu32_memory_map.h"
 
 
 /** Инициализирует контроллер USART
@@ -119,8 +118,6 @@ void UART_Read(UART_TypeDef* uart, uint8_t* byte_array, uint32_t count);
     \param uart указатель для доступа к UART
  */
 void UART_ClearRxFifo(UART_TypeDef* uart);
-
-void __attribute__((weak)) xputc(char c);
 
 
 #endif // UART_LIB_H_INCLUDED

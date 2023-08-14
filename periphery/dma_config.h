@@ -99,7 +99,7 @@
     { 
     
         DMA_CHANNEL_TypeDef CHANNELS[DMA_CHANNEL_COUNT];
-        volatile uint32_t ConfigStatus ;  // 0x80
+        volatile uint32_t CONTROL;  // 0x80
             
     } DMA_CONFIG_TypeDef;
 #endif
