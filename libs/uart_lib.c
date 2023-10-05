@@ -1,11 +1,35 @@
 
 #include "uart_lib.h"
 
+__attribute__((weak)) void HAL_UART_MspInit(UART_TypeDef* uart)
+{
+    GPIO_InitTypeDef GPIO_InitStruct = {0}; 
+
+    if (uart == UART_0)
+    {
+        __HAL_PCC_UART_0_CLK_ENABLE();
+        GPIO_InitStruct.Pin = PORT0_5 | PORT0_6;
+        GPIO_InitStruct.Mode = HAL_GPIO_MODE_SERIAL;
+        GPIO_InitStruct.Pull = HAL_GPIO_PULL_NONE;
+        HAL_GPIO_Init(GPIO_0, &GPIO_InitStruct);
+    }
+
+    if (uart == UART_1)
+    {
+        __HAL_PCC_UART_1_CLK_ENABLE();
+        GPIO_InitStruct.Pin = PORT1_8 | PORT1_9;
+        GPIO_InitStruct.Mode = HAL_GPIO_MODE_SERIAL;
+        GPIO_InitStruct.Pull = HAL_GPIO_PULL_NONE;
+        HAL_GPIO_Init(GPIO_1, &GPIO_InitStruct);
+    }
+}
 
 bool UART_Init(UART_TypeDef* uart, 
     uint32_t divider, uint32_t control1,
     uint32_t control2, uint32_t control3)
 {
+    HAL_UART_MspInit(uart);
+    
     bool ready;
     uint32_t flags;
     
@@ -115,4 +139,10 @@ void UART_ClearRxFifo(UART_TypeDef* uart)
     {
         (void)uart->RXDATA;
     }
+}
+
+void __attribute__((weak)) xputc(char c)
+{
+	UART_WriteByte(UART_0, c);
+	UART_WaitTransmission(UART_0);
 }

@@ -12,15 +12,9 @@
 
     typedef struct
     {
-    //--------------------------
-    // OTP registers
-    //--------------------------
-
-    volatile uint32_t COUNTER;
-    volatile uint32_t INT_CLEAR;
-    volatile uint32_t ENABLE;
-   
-
+        volatile uint32_t TIMEOUT;
+        volatile uint32_t INT_CLEAR;
+        volatile uint32_t ENABLE;
     } WDT_BUS_TypeDef;
 #endif
 

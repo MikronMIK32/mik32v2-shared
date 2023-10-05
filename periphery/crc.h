@@ -25,11 +25,6 @@
 #define CRC_CTRL_WAS_S              25
 #define CRC_CTRL_WAS_M              (1 << CRC_CTRL_WAS_S)
 //
-#define CRC_CTRL_TCRC_S             24
-#define CRC_CTRL_TCRC_M             (1 << CRC_CTRL_TCRC_S)
-#define CRC_CTRL_TCRC_16_M          (0 << CRC_CTRL_TCRC_S)
-#define CRC_CTRL_TCRC_32_M          (1 << CRC_CTRL_TCRC_S)
-//
 #define CRC_CTRL_BUSY_S             0
 #define CRC_CTRL_BUSY_M             (1 << CRC_CTRL_BUSY_S)
 

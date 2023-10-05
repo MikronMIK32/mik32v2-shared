@@ -4,12 +4,15 @@
 /** \file
     Библиотека для работы с контроллером USART.
 */
-
+#include "mik32_hal_pcc.h"
+#include "mik32_hal_gpio.h"
 #include "inttypes.h"
 #include <stdbool.h>
 
 #include "uart.h"
+#include "mcu32_memory_map.h"
 
+void HAL_UART_MspInit(UART_TypeDef* uart);
 
 /** Инициализирует контроллер USART
 
@@ -118,6 +121,8 @@ void UART_Read(UART_TypeDef* uart, uint8_t* byte_array, uint32_t count);
     \param uart указатель для доступа к UART
  */
 void UART_ClearRxFifo(UART_TypeDef* uart);
+
+void __attribute__((weak)) xputc(char c);
 
 
 #endif // UART_LIB_H_INCLUDED
