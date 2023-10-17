@@ -25,7 +25,7 @@
 #define TSENS_CFG_CLK_MUX_S         3
 #define TSENS_CFG_CLK_MUX_M         (0b111 << TSENS_CFG_CLK_MUX_S)
 #define TSENS_CFG_DIV_S             6
-#define TSENS_CFG_DIV_M             (0x3FF << TSENS_CFG_DIV)
+#define TSENS_CFG_DIV_M             (0x3FF << TSENS_CFG_DIV_S)
 
 #define TSENS_TRESHOLD_HI_S    0
 #define TSENS_TRESHOLD_HI_M    (0x3FF << TSENS_TRESHOLD_HI_S)
