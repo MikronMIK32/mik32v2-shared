@@ -40,14 +40,22 @@ memset_2:
 # (la instruction equivalents are left in comments)
     
 .macro la_abs reg, address
+    .option push
+    .option norelax
     lui \reg, %hi(\address)
     addi \reg, \reg, %lo(\address)
+    .option pop
 .endm
 
+
 .macro jalr_abs return_reg, address
+    .option push
+    .option norelax
     lui \return_reg, %hi(\address)
     jalr \return_reg, %lo(\address)(\return_reg)
+    .option pop
 .endm
+
 
 
 .text
