@@ -1,18 +1,22 @@
 #ifndef PM_H_INCLUDED
 #define PM_H_INCLUDED
 
-#define PM_Div_AHB_OFFSET           0x00
-#define PM_Div_APB_M_OFFSET         0x04
-#define PM_Div_APB_P_OFFSET         0x08
-#define PM_Clk_AHB_Set_OFFSET       0x0C
-#define PM_Clk_AHB_Clear_OFFSET     0x10
-#define PM_Clk_APB_M_Set_OFFSET     0x14
-#define PM_Clk_APB_M_Clear_OFFSET   0x18
-#define PM_Clk_APB_P_Set_OFFSET     0x1C
-#define PM_Clk_APB_P_Clear_OFFSET   0x20
-#define PM_AHB_Clk_Mux_OFFSET       0x24
-#define PM_Wdt_Clk_Mux_OFFSET       0x28
-#define PM_Cpu_Rtc_Clk_Mux_OFFSET   0x2C
+#define PM_DIV_AHB_OFFSET           0x00
+#define PM_DIV_APB_M_OFFSET         0x04
+#define PM_DIV_APB_P_OFFSET         0x08
+#define PM_CLK_AHB_SET_OFFSET       0x0C
+#define PM_CLK_AHB_CLEAR_OFFSET     0x10
+#define PM_CLK_APB_M_SET_OFFSET     0x14
+#define PM_CLK_APB_M_CLEAR_OFFSET   0x18
+#define PM_CLK_APB_P_SET_OFFSET     0x1C
+#define PM_CLK_APB_P_CLEAR_OFFSET   0x20
+#define PM_AHB_CLK_MUX_OFFSET       0x24
+#define PM_WDT_CLK_MUX_OFFSET       0x28
+#define PM_CPU_RTC_CLK_MUX_OFFSET   0x2C
+#define PM_TIMER_CFG_OFFSET         0x30
+#define PM_FREQ_MASK_OFFSET         0x34
+#define PM_FREQ_STATUS_OFFSET       0x38
+#define PM_SLEEP_MODE_OFFSET        0x3C
 
 
 #define PM_AHB_CLK_MUX_S             0
@@ -23,8 +27,8 @@
 #define PM_AHB_CLK_MUX_LSI32K_M     (0x3 << PM_AHB_CLK_MUX_S)
 #define PM_AHB_FORCE_MUX_S           2
 #define PM_AHB_FORCE_MUX_M          (1 << PM_AHB_FORCE_MUX_S)
-#define PM_AHB_FORCE_MUX_FIXED      (1 << PM_AHB_CLK_MUX_FIXED_S)
-#define PM_AHB_FORCE_MUX_UNFIXED    (0 << PM_AHB_CLK_MUX_FIXED_S)
+#define PM_AHB_FORCE_MUX_FIXED      (1 << PM_AHB_FORCE_MUX_S)
+#define PM_AHB_FORCE_MUX_UNFIXED    (0 << PM_AHB_FORCE_MUX_S)
 
 #define PM_WDT_CLK_MUX_S            0
 #define PM_WDT_CLK_MUX_M            (3 << PM_WDT_CLK_MUX_S)
@@ -58,25 +62,25 @@
 
 #define PM_TIMER_CFG_MUX_TIMER_M(timer_index)     (0x7 << (timer_index))
 
-#define PM_FREQ_MASK_FORCE_DIV_S         4
+#define PM_FREQ_MASK_FORCE_DIV_S        4
 #define PM_FREQ_MASK_FORCE_DIV_M        (1 << PM_FREQ_MASK_FORCE_DIV_S)
-#define PM_FREQ_MASK_EXT32M_S            3
-#define PM_FREQ_MASK_EXT32M_M           (1 << PM_FREQ_MASK_EXT32M_S)
-#define PM_FREQ_MASK_HSI32M_S            2
+#define PM_FREQ_MASK_OSC32M_S           3
+#define PM_FREQ_MASK_OSC32M_M           (1 << PM_FREQ_MASK_OSC32M_S)
+#define PM_FREQ_MASK_HSI32M_S           2
 #define PM_FREQ_MASK_HSI32M_M           (1 << PM_FREQ_MASK_HSI32M_S)
-#define PM_FREQ_MASK_EXT32K_S            1
-#define PM_FREQ_MASK_EXT32K_M           (1 << PM_FREQ_MASK_EXT32K_S)
-#define PM_FREQ_MASK_LSI32K_S            0
+#define PM_FREQ_MASK_OSC32K_S           1
+#define PM_FREQ_MASK_OSC32K_M           (1 << PM_FREQ_MASK_OSC32K_S)
+#define PM_FREQ_MASK_LSI32K_S           0
 #define PM_FREQ_MASK_LSI32K_M           (1 << PM_FREQ_MASK_LSI32K_S)
 
-#define PM_FREQ_STATUS_EXT32M            3
-#define PM_FREQ_STATUS_EXT32M_M         (1 << PM_FREQ_STATUS_EXT32M)
-#define PM_FREQ_STATUS_HSI32M            2
-#define PM_FREQ_STATUS_HSI32M_M         (1 << PM_FREQ_STATUS_HSI32M)
-#define PM_FREQ_STATUS_EXT32K            1
-#define PM_FREQ_STATUS_EXT32K_M         (1 << PM_FREQ_STATUS_EXT32K)
-#define PM_FREQ_STATUS_LSI32K            0
-#define PM_FREQ_STATUS_LSI32K_M         (1 << PM_FREQ_STATUS_LSI32K)
+#define PM_FREQ_STATUS_OSC32M_S         3
+#define PM_FREQ_STATUS_OSC32M_M         (1 << PM_FREQ_STATUS_OSC32M_S)
+#define PM_FREQ_STATUS_HSI32M_S         2
+#define PM_FREQ_STATUS_HSI32M_M         (1 << PM_FREQ_STATUS_HSI32M_S)
+#define PM_FREQ_STATUS_OSC32K_S         1
+#define PM_FREQ_STATUS_OSC32K_M         (1 << PM_FREQ_STATUS_OSC32K_S)
+#define PM_FREQ_STATUS_LSI32K_S         0
+#define PM_FREQ_STATUS_LSI32K_M         (1 << PM_FREQ_STATUS_LSI32K_S)
 
 #define PM_SLEEP_MODE_S     0
 #define PM_SLEEP_MODE_M    (1 << PM_SLEEP_MODE_S)
