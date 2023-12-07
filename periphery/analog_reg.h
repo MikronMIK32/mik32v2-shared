@@ -13,6 +13,7 @@
 #define DAC_EXTPAD_EN_S         11
 #define DAC_EXTPAD_EN_M         (1 << DAC_EXTPAD_EN_S)
 #define DAC_EMPTY_READ_S        13 //Need New Name
+#define DAC_EMPTY_READ_M        (1 << DAC_EMPTY_READ_S)
 
 
 
