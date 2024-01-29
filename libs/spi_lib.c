@@ -65,6 +65,7 @@ void SPI_ClearRxBuffer(SPI_TypeDef* s)
     {
         dummy = s->RXDATA;
     }
+    (void) dummy;
 }
 
 
