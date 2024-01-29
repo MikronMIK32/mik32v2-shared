@@ -8,7 +8,7 @@ __attribute__((weak)) void HAL_UART_MspInit(UART_TypeDef* uart)
     if (uart == UART_0)
     {
         __HAL_PCC_UART_0_CLK_ENABLE();
-        GPIO_InitStruct.Pin = PORT0_5 | PORT0_6;
+        GPIO_InitStruct.Pin = GPIO_PIN_5 | GPIO_PIN_6;
         GPIO_InitStruct.Mode = HAL_GPIO_MODE_SERIAL;
         GPIO_InitStruct.Pull = HAL_GPIO_PULL_NONE;
         HAL_GPIO_Init(GPIO_0, &GPIO_InitStruct);
@@ -17,7 +17,7 @@ __attribute__((weak)) void HAL_UART_MspInit(UART_TypeDef* uart)
     if (uart == UART_1)
     {
         __HAL_PCC_UART_1_CLK_ENABLE();
-        GPIO_InitStruct.Pin = PORT1_8 | PORT1_9;
+        GPIO_InitStruct.Pin = GPIO_PIN_8 | GPIO_PIN_9;
         GPIO_InitStruct.Mode = HAL_GPIO_MODE_SERIAL;
         GPIO_InitStruct.Pull = HAL_GPIO_PULL_NONE;
         HAL_GPIO_Init(GPIO_1, &GPIO_InitStruct);
