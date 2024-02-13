@@ -16,7 +16,11 @@
 
     typedef struct
     {
-        volatile uint32_t SET;                 
+        union
+        {
+            volatile uint32_t SET;
+            volatile uint32_t STATE;
+        };                
         volatile uint32_t CLEAR;               
         volatile uint32_t DIRECTION_OUT;       
         volatile uint32_t DIRECTION_IN;        

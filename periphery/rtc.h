@@ -45,7 +45,6 @@
 
 #define RTC_TIME_DOW_S          24
 #define RTC_TIME_DOW_M          (0x7 << RTC_TIME_DOW_S)
-
 #define RTC_TIME_TH_S           22
 #define RTC_TIME_TH_M           (0x3 << RTC_TIME_TH_S)
 #define RTC_TIME_H_S            18
