@@ -1,6 +1,6 @@
-# mik32v1-shared
+# mik32v2-shared
 
-The repository contains header files, startup files, linking scripts and some basic libraries related to MIK32 V1
+The repository contains header files, startup files, linking scripts and some basic libraries related to MIK32 V2
 
   * include/ - header files of the controller core
     * mcu32_memory_map.h - memory map, bus clocking masks, interrupt lines and DMA
