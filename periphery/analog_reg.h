@@ -57,8 +57,8 @@
 #define TSENS_VALUE_EOC_M               (1 << TSENS_VALUE_EOC_S)
 #define TSENS_VALUE_VALUE_S             0
 #define TSENS_VALUE_VALUE_M             (0x3FF << TSENS_VALUE_VALUE_S)
-#define TSENS_CELSIUS_TO_VALUE(i)       (uint32_t)(4096/((10.3*622)/(i+273.15)-10.3 +1))
-#define TSENS_VALUE_TO_CELSIUS(v)       ((640660*(v))/(40960+93*(v))*10-27315) // Значение температуры в 100 раз больше
+#define TSENS_CELSIUS_TO_VALUE(i)       (40960*100/(((6406600-93*((int)(i)*100+27315))*100)/((int)(i)*100+27315))) // (uint32_t)(4096/((10.3*622)/(i+273.15)-10.3 +1))
+#define TSENS_VALUE_TO_CELSIUS(v)       ((640660*(uint32_t)(v))/(40960+93*(uint32_t)(v))*10-27315) // Значение температуры в 100 раз больше
 
 
 #define ADC_CONFIG_EN_S                0
