@@ -83,7 +83,14 @@
 #define PM_FREQ_STATUS_LSI32K_M         (1 << PM_FREQ_STATUS_LSI32K_S)
 
 #define PM_SLEEP_MODE_S     0
-#define PM_SLEEP_MODE_M    (1 << PM_SLEEP_MODE_S)
+#define PM_SLEEP_MODE_M    (0b111 << PM_SLEEP_MODE_S)
+#define PM_SLEEP_MODE_EEPROM_S      0
+#define PM_SLEEP_MODE_EEPROM_M      (1 << PM_SLEEP_MODE_EEPROM_S)
+#define PM_SLEEP_MODE_RAM_S         1
+#define PM_SLEEP_MODE_RAM_M         (1 << PM_SLEEP_MODE_RAM_S)
+#define PM_SLEEP_MODE_SPIFI_S       2
+#define PM_SLEEP_MODE_SPIFI_M       (1 << PM_SLEEP_MODE_SPIFI_S)
+
 
 #ifndef _ASSEMBLER_
     #include <inttypes.h> 
@@ -91,22 +98,22 @@
     {   
        
       
-        volatile uint32_t DIV_AHB;         
-        volatile uint32_t DIV_APB_M;         
-        volatile uint32_t DIV_APB_P;         
+        volatile uint32_t DIV_AHB;
+        volatile uint32_t DIV_APB_M;
+        volatile uint32_t DIV_APB_P;
         volatile uint32_t CLK_AHB_SET;
-        volatile uint32_t CLK_AHB_CLEAR;         
+        volatile uint32_t CLK_AHB_CLEAR;
         volatile uint32_t CLK_APB_M_SET;
-        volatile uint32_t CLK_APB_M_CLEAR;         
+        volatile uint32_t CLK_APB_M_CLEAR;
         volatile uint32_t CLK_APB_P_SET;
-        volatile uint32_t CLK_APB_P_CLEAR;         
+        volatile uint32_t CLK_APB_P_CLEAR;
         volatile uint32_t AHB_CLK_MUX;
-        volatile uint32_t WDT_CLK_MUX;    
-        volatile uint32_t CPU_RTC_CLK_MUX;   
-        volatile uint32_t TIMER_CFG;  
-        volatile uint32_t FREQ_MASK;  
-        volatile uint32_t FREQ_STATUS;  
-        volatile uint32_t SLEEP_MODE;  
+        volatile uint32_t WDT_CLK_MUX;
+        volatile uint32_t CPU_RTC_CLK_MUX;
+        volatile uint32_t TIMER_CFG;
+        volatile uint32_t FREQ_MASK;
+        volatile uint32_t FREQ_STATUS;
+        volatile uint32_t SLEEP_MODE;
 
     } PM_TypeDef;
 #endif
