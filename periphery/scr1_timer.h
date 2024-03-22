@@ -18,10 +18,26 @@
     {
         volatile uint32_t TIMER_CTRL;
         volatile uint32_t TIMER_DIV;
-        volatile uint32_t MTIME;
-        volatile uint32_t MTIMEH;        
-        volatile uint32_t MTIMECMP;
-        volatile uint32_t MTIMECMPH;        
+        union 
+        {
+            struct 
+            {
+                volatile uint32_t MTIME;
+                volatile uint32_t MTIMEH;        
+            };
+            uint64_t TIME;
+        };
+        
+        union
+        {
+            struct
+            {
+                volatile uint32_t MTIMECMP;
+                volatile uint32_t MTIMECMPH;        
+            };
+            uint64_t TIMECMP;
+        };
+        
     } SCR1_TIMER_TypeDef;
 #endif
 
