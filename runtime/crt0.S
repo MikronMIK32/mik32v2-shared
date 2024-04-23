@@ -73,6 +73,13 @@ _start:
     la_abs  a2, __DATA_IMAGE_END__
     la_abs  a3, __DATA_START__
     memcpy  a1, a2, a3, t0
+
+    # Init ramfunc
+    #
+    la_abs  a1, __RAM_TEXT_IMAGE_START__
+    la_abs  a2, __RAM_TEXT_IMAGE_END__
+    la_abs  a3, __RAM_TEXT_START__
+    memcpy  a1, a2, a3, t0
     
     # Clear bss
     #
