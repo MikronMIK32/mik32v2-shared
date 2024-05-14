@@ -1,17 +1,17 @@
 #ifndef ANALOG_REG_H_INCLUDED
 #define ANALOG_REG_H_INCLUDED
 
-#define DAC_CFG_EN18_S          0
-#define DAC_CFG_EN18_M          (1 << DAC_CFG_EN18_S)
-#define DAC_CFG_RESN_S          1
-#define DAC_CFG_RESN_M          (1 << DAC_CFG_RESN_S)
+#define DAC_CFG_EN_S          0
+#define DAC_CFG_EN_M          (1 << DAC_CFG_EN_S)
+#define DAC_CFG_RN_S          1
+#define DAC_CFG_RN_M          (1 << DAC_CFG_RN_S)
 #define DAC_CFG_DIV_S           2
 #define DAC_CFG_DIV_M           (0xFF << DAC_CFG_DIV_S)
 #define DAC_CFG_DIV(v)          (((v) << DAC_CFG_DIV_S) & DAC_CFG_DIV_M)
 #define DAC_CFG_EXTEN_S         10
 #define DAC_CFG_EXTEN_M         (1 << DAC_CFG_EXTEN_S)
-#define DAC_EXTPAD_EN_S         11
-#define DAC_EXTPAD_EN_M         (1 << DAC_EXTPAD_EN_S)
+#define DAC_EXTPAD_S         11
+#define DAC_EXTPAD_M         (1 << DAC_EXTPAD_S)
 #define DAC_EMPTY_READ_S        13 //Need New Name
 #define DAC_EMPTY_READ_M        (1 << DAC_EMPTY_READ_S)
 
@@ -60,19 +60,33 @@
 #define TSENS_CELSIUS_TO_VALUE(i)       (40960*100/(((6406600-93*((int)(i)*100+27315))*100)/((int)(i)*100+27315))) // (uint32_t)(4096/((10.3*622)/(i+273.15)-10.3 +1))
 #define TSENS_VALUE_TO_CELSIUS(v)       ((640660*(uint32_t)(v))/(40960+93*(uint32_t)(v))*10-27315) // Значение температуры в 100 раз больше
 
+#define TSENS_SINGLE_S                  0
+#define TSENS_SINGLE_M                  (1 << TSENS_SINGLE_S)
+#define TSENS_CONTINUOUS_S              0
+#define TSENS_CONTINUOUS_M              (1 << TSENS_CONTINUOUS_S)
 
-#define ADC_CONFIG_EN_S                0
-#define ADC_CONFIG_EN_M                (1 << ADC_CONFIG_EN_S)
-#define ADC_CONFIG_RESETN_S            1
-#define ADC_CONFIG_RESETN_M            (1 << ADC_CONFIG_RESETN_S)
-#define ADC_CONFIG_EXTREF_S            2
-#define ADC_CONFIG_EXTREF_M            (1 << ADC_CONFIG_EXTREF_S)
-#define ADC_CONFIG_EXTPAD_EN_S         3
-#define ADC_CONFIG_EXTPAD_EN_M         (1 << ADC_CONFIG_EXTPAD_EN_S)
-#define ADC_CONFIG_SEL_S               4
-#define ADC_CONFIG_SEL_M               (0b111 << ADC_CONFIG_SEL_S)
-#define ADC_CONFIG_SAH_TIME_S          8
-#define ADC_CONFIG_SAH_TIME_M          (0x3F << ADC_CONFIG_SAH_TIME_S)
+
+#define ADC_CONFIG_EN_S                 0
+#define ADC_CONFIG_EN_M                 (1 << ADC_CONFIG_EN_S)
+#define ADC_CONFIG_RN_S                 1
+#define ADC_CONFIG_RN_M                 (1 << ADC_CONFIG_RN_S)
+#define ADC_CONFIG_EXTEN_S              2
+#define ADC_CONFIG_EXTEN_M              (1 << ADC_CONFIG_EXTEN_S)
+#define ADC_CONFIG_EXTPAD_EN_S          3
+#define ADC_CONFIG_EXTPAD_EN_M          (1 << ADC_CONFIG_EXTPAD_EN_S)
+#define ADC_CONFIG_SEL_S                4
+#define ADC_CONFIG_SEL_M                (0b111 << ADC_CONFIG_SEL_S)
+#define ADC_CONFIG_SAH_TIME_S           8
+#define ADC_CONFIG_SAH_TIME_M           (0x3F << ADC_CONFIG_SAH_TIME_S)
+
+#define ADC_CONTINUOUS_S         0
+#define ADC_CONTINUOUS_M         (1 << ADC_CONTINUOUS_S)
+#define ADC_SINGLE_S             0
+#define ADC_SINGLE_M             (1 << ADC_SINGLE_S)
+#define ADC_VALID_S              0
+#define ADC_VALID_M              (1 << ADC_VALID_S)
+#define ADC_VALUE_S              0
+#define ADC_VALUE_M              (0x3FF << ADC_VALUE_S)
 
 #define REF_CLB_VCOEF_S         0
 #define REF_CLB_VCOEF_M         (0xF << REF_CLB_VCOEF_S)
