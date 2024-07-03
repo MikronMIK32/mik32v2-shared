@@ -6,7 +6,7 @@ ENTRY(_start)
 
 
 MEMORY {
-  rom (RX): ORIGIN = 0x80000000, LENGTH = 16K
+  rom (RX): ORIGIN = 0x80000000, LENGTH = 16M
   ram (RWX): ORIGIN = 0x02000000, LENGTH = 16K
 }
 
