@@ -9,6 +9,7 @@ MEMORY {
   ram (RWX): ORIGIN = 0x02000000, LENGTH = 16K
 }
 
+
 STACK_SIZE = 1024;
 
 CL_SIZE = 16;
@@ -17,7 +18,6 @@ SECTIONS {
     .text ORIGIN(ram) : {
         PROVIDE(__TEXT_START__ = .);
         *crt0.o(.text .text.*)
-        *(.text.smallsysteminit)
         *(.text.SmallSystemInit)
         . = ORIGIN(ram) + 0xC0;
         KEEP(*crt0.o(.trap_text))
