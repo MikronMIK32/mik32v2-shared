@@ -95,7 +95,7 @@ SystemInit:
 
 .section .trap_text, "ax"
 // .org should be consistent with
-// default mtvec value (0xC0 for MIK32V0 & MIK32V2)
+// default mtvec value (0xC0 for MIK32V2)
 //.org 0xC0
 trap_entry:
     j raw_trap_handler
