@@ -10,7 +10,7 @@
 #include <stdbool.h>
 
 #include "uart.h"
-#include "mcu32_memory_map.h"
+#include "mik32_memory_map.h"
 
 #define XPRINTF_NO 0
 #define XPRINTF_YES 0xFF
