@@ -80,14 +80,6 @@ _start:
     la_abs  a2, __BSS_END__
     memset a1, a2, zero
 
-    #ifdef MIK32V0
-    # Enable pad_config clocking
-    #
-    li t0, (1 << 3)
-    li t1, 0x50014
-    sw t0, (t1)
-    #endif
-    
     jalr_abs ra, SmallSystemInit
     jalr_abs ra, SystemInit
     jalr_abs ra, main
