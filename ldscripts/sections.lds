@@ -54,6 +54,7 @@ SECTIONS {
 
     .bss : {
         *(.bss .bss.*)
+        *(COMMON)
         . = ALIGN(CL_SIZE);
         PROVIDE(__BSS_END__ = .);
     } >REGION_RAM
