@@ -62,6 +62,11 @@ memset_2:
 
 _start:
     
+    li t0, 128000
+    start_loop_delay:
+    nop
+    addi t0, t0, -1
+    bnez t0, start_loop_delay
     # Init stack and global pointer
     #
     la_abs  sp, __C_STACK_TOP__
