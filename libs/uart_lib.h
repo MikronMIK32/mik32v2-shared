@@ -10,7 +10,7 @@
 #include <stdbool.h>
 
 #include "uart.h"
-#include "mcu32_memory_map.h"
+#include "mik32_memory_map.h"
 
 void HAL_UART_MspInit(UART_TypeDef* uart);
 

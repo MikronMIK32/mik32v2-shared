@@ -3,7 +3,7 @@
 The repository contains header files, startup files, linking scripts and some basic libraries related to MIK32 V2
 
   * include/ - header files of the controller core
-    * mcu32_memory_map.h - memory map, bus clocking masks, interrupt lines and DMA
+    * mik32_memory_map.h - memory map, bus clocking masks, interrupt lines and DMA
   * ldscripts/ - linker scripts
     * eeprom.ld - loading from ROM
     * ram.ld - loading from RAM

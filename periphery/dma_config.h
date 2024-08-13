@@ -46,13 +46,13 @@
 #define DMA_CH_CFG_READ_BURST_SIZE_S        11    //Кол-во байт пакетной передачи:   2^Read_burst_size
 #define DMA_CH_CFG_WRITE_BURST_SIZE_S       14    //Кол-во байт пакетной передачи:   2^Write_burst_size
 
-#define DMA_CH_CFG_READ_REQUETS_S               17    // выбор канала чтения 
-#define DMA_CH_CFG_READ_REQUETS_M               (0xF << DMA_CH_CFG_READ_REQUETS_S)
-#define DMA_CH_CFG_READ_REQUETS(v)              (((v) << DMA_CH_CFG_READ_REQUETS_S) & DMA_CH_CFG_READ_REQUETS_M)
+#define DMA_CH_CFG_READ_REQUEST_S               17    // выбор канала чтения 
+#define DMA_CH_CFG_READ_REQUEST_M               (0xF << DMA_CH_CFG_READ_REQUEST_S)
+#define DMA_CH_CFG_READ_REQUEST(v)              (((v) << DMA_CH_CFG_READ_REQUEST_S) & DMA_CH_CFG_READ_REQUEST_M)
 
-#define DMA_CH_CFG_WRITE_REQUETS_S              21    // выбор канала записи 
-#define DMA_CH_CFG_WRITE_REQUETS_M              (0xF << DMA_CH_CFG_WRITE_REQUETS_S)
-#define DMA_CH_CFG_WRITE_REQUETS(v)             (((v) << DMA_CH_CFG_WRITE_REQUETS_S) & DMA_CH_CFG_WRITE_REQUETS_M)
+#define DMA_CH_CFG_WRITE_REQUEST_S              21    // выбор канала записи 
+#define DMA_CH_CFG_WRITE_REQUEST_M              (0xF << DMA_CH_CFG_WRITE_REQUEST_S)
+#define DMA_CH_CFG_WRITE_REQUEST(v)             (((v) << DMA_CH_CFG_WRITE_REQUEST_S) & DMA_CH_CFG_WRITE_REQUEST_M)
 
 
 #define DMA_CH_CFG_READ_ACK_EN_S               25
