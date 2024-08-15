@@ -28,7 +28,7 @@
 #define PVD_STATUS_OVER_FLAG_S     3
 #define PVD_STATUS_OVER_FLAG_S     (1 << PVD_STATUS_OVER_FLAG_S)
 
-#ifndef _ASSEMBLER_
+#ifndef __ASSEMBLER__
     #include <inttypes.h>
 
     typedef struct

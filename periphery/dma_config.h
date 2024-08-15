@@ -86,7 +86,7 @@
 #define DMA_CONFIG_CURRENT_VALUE_S         (DMA_CHANNEL_COUNT + 4)
 #define DMA_CONFIG_CURRENT_VALUE_M         (1 << DMA_CONFIG_CURRENT_VALUE_S)
 
-#ifndef _ASSEMBLER_
+#ifndef __ASSEMBLER__
     #include <inttypes.h>
 
     typedef struct

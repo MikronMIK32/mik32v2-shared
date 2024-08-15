@@ -4,7 +4,7 @@
 #define PAD_CONFIG_PIN_M(pin) (0b11 << ((pin) << 1))
 #define PAD_CONFIG_PIN(pin, value) ((value) << ((pin) << 1))
 
-#ifndef _ASSEMBLER_
+#ifndef __ASSEMBLER__
     #include <inttypes.h>
 
     typedef struct

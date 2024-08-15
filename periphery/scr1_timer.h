@@ -11,7 +11,7 @@
 #define SCR1_TIMER_CTRL_CLKSRC_RTC_M         (1 << SCR1_TIMER_CTRL_CLKSRC_S)
 
 
-#ifndef _ASSEMBLER_
+#ifndef __ASSEMBLER__
     #include <inttypes.h>
 
     typedef struct

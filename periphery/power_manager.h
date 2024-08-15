@@ -92,7 +92,7 @@
 #define PM_SLEEP_MODE_SPIFI_M       (1 << PM_SLEEP_MODE_SPIFI_S)
 
 
-#ifndef _ASSEMBLER_
+#ifndef __ASSEMBLER__
     #include <inttypes.h> 
     typedef struct
     {   

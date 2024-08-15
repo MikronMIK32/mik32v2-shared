@@ -109,7 +109,7 @@
 #define TEST_DIG_MUX_RC_CLK32K_M      (15 << 9)
 
 
-#ifndef _ASSEMBLER_
+#ifndef __ASSEMBLER__
     #include <inttypes.h>
 
     typedef struct

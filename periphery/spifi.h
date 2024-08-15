@@ -103,7 +103,7 @@
 #define SPIFI_CONFIG_STAT_VERSION_M		    (0xFF << SPIFI_CONFIG_STAT_VERSION_S)
 
 
-#ifndef _ASSEMBLER_
+#ifndef __ASSEMBLER__
     #include <inttypes.h> 
     typedef struct
     {

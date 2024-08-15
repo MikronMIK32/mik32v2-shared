@@ -125,7 +125,7 @@
 #define UART_MODEM_DSRIF_M         (1 << UART_MODEM_DSRIF_S)
 
 
-#ifndef _ASSEMBLER_
+#ifndef __ASSEMBLER__
     #include <inttypes.h>
 
     

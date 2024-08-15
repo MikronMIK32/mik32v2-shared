@@ -7,7 +7,7 @@
 #define GPIO_IRQ_LINE_MUX_M(line_num) (0xF << ((line_num) << 2))
 #define GPIO_IRQ_LINE_MUX(mux, line_num) (((mux) << ((line_num) << 2)) & GPIO_IRQ_LINE_MUX_M(line_num))
 
-#ifndef _ASSEMBLER_
+#ifndef __ASSEMBLER__
     #include <inttypes.h>
 
     typedef struct

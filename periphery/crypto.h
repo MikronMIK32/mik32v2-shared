@@ -35,7 +35,7 @@
 #define CRYPTO_CONFIG_READ_STATUS_M         (1 << CRYPTO_CONFIG_READ_STATUS_S)
 
 
-#ifndef _ASSEMBLER_
+#ifndef __ASSEMBLER__
     #include <inttypes.h>
 
     typedef struct

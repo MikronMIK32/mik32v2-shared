@@ -45,7 +45,7 @@
 #define EPIC_LINE_M(interrupt_line)     (1 << interrupt_line)
 
 
-#ifndef _ASSEMBLER_
+#ifndef __ASSEMBLER__
     #include <inttypes.h>
 
     typedef struct

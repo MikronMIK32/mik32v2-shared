@@ -5,7 +5,7 @@
 #define BOOT_RAM                     1
 #define BOOT_SPIFI                   2
 
-#ifndef _ASSEMBLER_
+#ifndef __ASSEMBLER__
     #include <inttypes.h> 
     typedef struct
     {   

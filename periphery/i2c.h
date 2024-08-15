@@ -144,7 +144,7 @@
 #define I2C_ICR_OVRCF_M                 (1 << I2C_ICR_OVRCF_S)
 
 
-#ifndef _ASSEMBLER_
+#ifndef __ASSEMBLER__
     #include <inttypes.h>
 
     typedef struct

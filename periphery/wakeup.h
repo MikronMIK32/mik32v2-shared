@@ -82,7 +82,7 @@
 #define WU_STOP_M                  (1 << WU_STOP_S)
 
     
-#ifndef _ASSEMBLER_
+#ifndef __ASSEMBLER__
     #include <inttypes.h> 
     typedef struct
     {   

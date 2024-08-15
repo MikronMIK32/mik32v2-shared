@@ -85,7 +85,7 @@
 #define TIMER32_CH_CNTRL_DIR_M	            (1 << TIMER32_CH_CNTRL_DIR_S)
 
 
-#ifndef _ASSEMBLER_
+#ifndef __ASSEMBLER__
     #include <inttypes.h>
 
     typedef struct

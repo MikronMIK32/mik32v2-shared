@@ -89,7 +89,7 @@
 #define EEPROM_WRBEH_GLOB       3
 
 
-#ifndef _ASSEMBLER_
+#ifndef __ASSEMBLER__
     #include <inttypes.h>
 
     typedef struct

@@ -63,7 +63,7 @@
 #define OTP_OTPWT2_N_W_M                           (0xFFFFFF << OTP_OTPWT2_N_W_S)
 
 
-#ifndef _ASSEMBLER_
+#ifndef __ASSEMBLER__
     #include <inttypes.h>
 
     typedef struct

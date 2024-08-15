@@ -37,7 +37,7 @@
 #define WDT_STA_RST_FLAG_M      (1 << WDT_STA_RST_FLAG_S)
 
 
-#ifndef _ASSEMBLER_
+#ifndef __ASSEMBLER__
     #include <inttypes.h> 
     typedef struct
     {

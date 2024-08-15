@@ -152,7 +152,7 @@
 #define TIMER16_CR_ENABLE_S                 0
 #define TIMER16_CR_ENABLE_M                 (1 << TIMER16_CR_ENABLE_S)
 
-#ifndef _ASSEMBLER_
+#ifndef __ASSEMBLER__
     #include <inttypes.h>
 
     typedef struct
