@@ -1,13 +1,16 @@
-# mik32v2-shared
+# MIK32: Набор для сборки приложений под микроконтроллер MIK32V2
 
-The repository contains header files, startup files, linking scripts and some basic libraries related to MIK32 V2
+Репозиторий содержит заголовочные и стартовые файлы, скрипты линковки для MIK32V2
 
-  * include/ - header files of the controller core
-    * mik32_memory_map.h - memory map, bus clocking masks, interrupt lines and DMA
-  * ldscripts/ - linker scripts
-    * eeprom.ld - loading from ROM
-    * ram.ld - loading from RAM
-    * spifi.ld - loading from SPIFI
-  * libs/ - periphery libraries
-  * periphery/ - periphery register header files
-  * runtime/crt0.S - start file
+# Содержимое директорий:
+
+- include/ - заголовочные файлы, связанные с ядром
+  - mik32_memory_map.h - содержит карту памяти, маски настройки шин тактирования, линии прерывания и прямого доступа к памяти (DMA)
+- ldscripts/ - скрипты линковки
+  - sections.lds - описания секций, общие для всех вариантов разметки регионов памяти, включается в файлы с описанием регионов
+  - eeprom.ld - файл линковки, в котором встроенный ЭСППЗУ (EEPROM) используется для хранения программы
+  - ram.ld - файл линковки, в котором часть ОЗУ используется для хранения программы
+  - spifi.ld - файл линковки, в котором внешняя Flash память используется для хранения программы
+- libs/ - некоторые низкоуровневые библиотеки периферий
+- periphery/ - описания периферийных регистров
+- runtime/crt0.S - стартовый файл
