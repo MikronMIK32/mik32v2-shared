@@ -46,24 +46,34 @@
 #define DMA_CH_CFG_READ_BURST_SIZE_S        11    //Кол-во байт пакетной передачи:   2^Read_burst_size
 #define DMA_CH_CFG_WRITE_BURST_SIZE_S       14    //Кол-во байт пакетной передачи:   2^Write_burst_size
 
-#define DMA_CH_CFG_READ_REQUEST_S               17    // выбор канала чтения 
-#define DMA_CH_CFG_READ_REQUEST_M               (0xF << DMA_CH_CFG_READ_REQUEST_S)
-#define DMA_CH_CFG_READ_REQUEST(v)              (((v) << DMA_CH_CFG_READ_REQUEST_S) & DMA_CH_CFG_READ_REQUEST_M)
+#define DMA_CH_CFG_READ_REQUEST_S           17    // выбор канала чтения 
+#define DMA_CH_CFG_READ_REQUEST_M           (0xF << DMA_CH_CFG_READ_REQUEST_S)
+#define DMA_CH_CFG_READ_REQUEST(v)          (((v) << DMA_CH_CFG_READ_REQUEST_S) & DMA_CH_CFG_READ_REQUEST_M)
 
-#define DMA_CH_CFG_WRITE_REQUEST_S              21    // выбор канала записи 
-#define DMA_CH_CFG_WRITE_REQUEST_M              (0xF << DMA_CH_CFG_WRITE_REQUEST_S)
-#define DMA_CH_CFG_WRITE_REQUEST(v)             (((v) << DMA_CH_CFG_WRITE_REQUEST_S) & DMA_CH_CFG_WRITE_REQUEST_M)
+#define DMA_CH_CFG_WRITE_REQUEST_S          21    // выбор канала записи 
+#define DMA_CH_CFG_WRITE_REQUEST_M          (0xF << DMA_CH_CFG_WRITE_REQUEST_S)
+#define DMA_CH_CFG_WRITE_REQUEST(v)         (((v) << DMA_CH_CFG_WRITE_REQUEST_S) & DMA_CH_CFG_WRITE_REQUEST_M)
 
-
-#define DMA_CH_CFG_READ_ACK_EN_S               25
-#define DMA_CH_CFG_READ_ACK_EN_M               (1 << DMA_CH_CFG_READ_ACK_EN_S)
-#define DMA_CH_CFG_WRITE_ACK_EN_S              26
-#define DMA_CH_CFG_WRITE_ACK_EN_M              (1 << DMA_CH_CFG_WRITE_ACK_EN_S)
+#define DMA_CH_CFG_READ_ACK_EN_S            25
+#define DMA_CH_CFG_READ_ACK_EN_M            (1 << DMA_CH_CFG_READ_ACK_EN_S)
+#define DMA_CH_CFG_WRITE_ACK_EN_S           26
+#define DMA_CH_CFG_WRITE_ACK_EN_M           (1 << DMA_CH_CFG_WRITE_ACK_EN_S)
 #define DMA_CH_CFG_IRQ_EN_S                 27
 #define DMA_CH_CFG_IRQ_EN_M                 (1 << DMA_CH_CFG_IRQ_EN_S)
 
+/* При чтении с CONFIG_STATUS.CURRENT_VALUE = 0 */
+#define DMA_CH_CFG_BUS_ERROR_READ_S         0
+#define DMA_CH_CFG_BUS_ERROR_READ_M         (1 << DMA_STATUS_BUS_ERROR_READ_S)
+#define DMA_CH_CFG_BUS_ERROR_WRITE_S        1
+#define DMA_CH_CFG_BUS_ERROR_WRITE_M        (1 << DMA_STATUS_BUS_ERROR_WRITE_S)
+#define DMA_CH_CFG_STATE_S                  2
+#define DMA_CH_CFG_STATE_M                  (1 << DMA_STATUS_STATE_S)
+#define DMA_CH_CFG_STATE_READ               (0b01 << DMA_STATUS_STATE_S)
+#define DMA_CH_CFG_STATE_WRITE              (0b10 << DMA_STATUS_STATE_S)
+
 #define DMA_CHANNEL_M                       ((1 << DMA_CHANNEL_COUNT) - 1) 
 
+/* CONFIG_STATUS при чтении */
 #define DMA_STATUS_READY_S                  0
 #define DMA_STATUS_READY_M                  (DMA_CHANNEL_M << DMA_STATUS_READY_S)
 #define DMA_STATUS_READY(i)                 ((1 << (DMA_STATUS_READY_S + (i))) & DMA_STATUS_READY_M)
@@ -72,9 +82,10 @@
 #define DMA_STATUS_CHANNEL_BUS_ERROR_S      2 * DMA_CHANNEL_COUNT
 #define DMA_STATUS_CHANNEL_BUS_ERROR_M      (DMA_CHANNEL_M << DMA_STATUS_CHANNEL_BUS_ERROR_S)
 
+/* CONFIG_STATUS при записи */
 #define DMA_CONFIG_CLEAR_LOCAL_IRQ_S       0
 #define DMA_CONFIG_CLEAR_LOCAL_IRQ_M       (DMA_CHANNEL_M << DMA_CONFIG_CLEAR_LOCAL_IRQ_S)
-#define DMA_CONFIG_CLEAR_LOCAL_IRQ(i)      ((1 << (DMA_CONTROL_CLEAR_LOCAL_IRQ_S + (i))) & DMA_CONTROL_CLEAR_LOCAL_IRQ_M)
+#define DMA_CONFIG_CLEAR_LOCAL_IRQ(i)      ((1 << (DMA_CONFIG_CLEAR_LOCAL_IRQ_S + (i))) & DMA_CONFIG_CLEAR_LOCAL_IRQ_M)
 #define DMA_CONFIG_CLEAR_GLOBAL_IRQ_S      (DMA_CHANNEL_COUNT + 0)
 #define DMA_CONFIG_CLEAR_GLOBAL_IRQ_M      (1 << DMA_CONFIG_CLEAR_GLOBAL_IRQ_S)
 #define DMA_CONFIG_CLEAR_ERROR_IRQ_S       (DMA_CHANNEL_COUNT + 1)
