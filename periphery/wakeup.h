@@ -7,7 +7,6 @@
 #define WU_PowerSwitch_On_Bat_OFFSET    0x0C
 #define WU_Clocks_OFFSET                0x10
 #define WU_RTC_Control_OFFSET           0x14
-#define WU_BOOT                         0x28
 
 
 // SYS_MASK
@@ -49,8 +48,8 @@
 #define WU_CLOCKS_BU_OSC32K_EN_M           (1 << WU_CLOCKS_BU_OSC32K_EN_S)
 #define WU_CLOCKS_BU_LSI32K_EN_S           1
 #define WU_CLOCKS_BU_LSI32K_EN_M           (1 << WU_CLOCKS_BU_LSI32K_EN_S)
-#define WU_CLOCKS_BU_ADJ_LSI32K_S          2
-#define WU_CLOCKS_BU_ADJ_LSI32K_M          (0xFF << WU_CLOCKS_BU_ADJ_LSI32K_S)
+#define WU_CLOCKS_BU_ADJ_LSI32K_S          6
+#define WU_CLOCKS_BU_ADJ_LSI32K_M          (0xF << WU_CLOCKS_BU_ADJ_LSI32K_S)
 #define WU_CLOCKS_BU_ADJ_LSI32K(v)         (((v) << WU_CLOCKS_BU_ADJ_LSI32K_S) & WU_CLOCKS_BU_ADJ_LSI32K_M)
 #define WU_CLOCKS_BU_RTC_CLK_MUX_S         10
 #define WU_CLOCKS_BU_RTC_CLK_MUX_M         (0x3 << WU_CLOCKS_BU_RTC_CLK_MUX_S)
