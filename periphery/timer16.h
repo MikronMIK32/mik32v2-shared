@@ -32,38 +32,37 @@
 #define TIMER16_PRESCALER_64_M              (0x6 << TIMER16_PRESCALER_S)
 #define TIMER16_PRESCALER_128_M             (0x7 << TIMER16_PRESCALER_S)
 
-// Alias for CFGR.ENC bit
 #define TIMER16_ENCODER_S                   24
 #define TIMER16_ENCODER_DISABLE_M           (0x0 << TIMER16_ENCODER_S)
 #define TIMER16_ENCODER_ENABLE_M            (0x1 << TIMER16_ENCODER_S)
 
 // Маски и сдвиги флагов прерываний
-#define TIMER16_INT_CMP_MATCH_S             0
-#define TIMER16_INT_CMP_MATCH_M             (0x1 << TIMER16_INT_CMP_MATCH_S)
-#define TIMER16_INT_ARR_MATCH_S             1
-#define TIMER16_INT_ARR_MATCH_M             (0x1 << TIMER16_INT_ARR_MATCH_S)
-#define TIMER16_INT_EXT_TRIG_S              2
-#define TIMER16_INT_EXT_TRIG_M              (0x1 << TIMER16_INT_EXT_TRIG_S)
-#define TIMER16_INT_CMP_OK_S                3
-#define TIMER16_INT_CMP_OK_M                (0x1 << TIMER16_INT_CMP_OK_S)
-#define TIMER16_INT_ARR_OK_S                4
-#define TIMER16_INT_ARR_OK_M                (0x1 << TIMER16_INT_ARR_OK_S)
+#define TIMER16_INT_CMPM_S                  0
+#define TIMER16_INT_CMPM_M                  (0x1 << TIMER16_INT_CMPM_S)
+#define TIMER16_INT_ARRM_S                  1
+#define TIMER16_INT_ARRM_M                  (0x1 << TIMER16_INT_ARRM_S)
+#define TIMER16_INT_EXTTRIG_S               2
+#define TIMER16_INT_EXTTRIG_M               (0x1 << TIMER16_INT_EXTTRIG_S)
+#define TIMER16_INT_CMPOK_S                 3
+#define TIMER16_INT_CMPOK_M                 (0x1 << TIMER16_INT_CMPOK_S)
+#define TIMER16_INT_ARROK_S                 4
+#define TIMER16_INT_ARROK_M                 (0x1 << TIMER16_INT_ARROK_S)
 #define TIMER16_INT_UP_S                    5
 #define TIMER16_INT_UP_M                    (0x1 << TIMER16_INT_UP_S)
 #define TIMER16_INT_DOWN_S                  6
 #define TIMER16_INT_DOWN_M                  (0x1 << TIMER16_INT_DOWN_S)
 
 // Регистр ISR
-#define TIMER16_ISR_CMP_MATCH_S             0
-#define TIMER16_ISR_CMP_MATCH_M             (0x1 << TIMER16_ISR_CMP_MATCH_S)
-#define TIMER16_ISR_ARR_MATCH_S             1
-#define TIMER16_ISR_ARR_MATCH_M             (0x1 << TIMER16_ISR_ARR_MATCH_S)
-#define TIMER16_ISR_EXT_TRIG_S              2
-#define TIMER16_ISR_EXT_TRIG_M              (0x1 << TIMER16_ISR_EXT_TRIG_S)
-#define TIMER16_ISR_CMP_OK_S                3
-#define TIMER16_ISR_CMP_OK_M                (0x1 << TIMER16_ISR_CMP_OK_S)
-#define TIMER16_ISR_ARR_OK_S                4
-#define TIMER16_ISR_ARR_OK_M                (0x1 << TIMER16_ISR_ARR_OK_S)
+#define TIMER16_ISR_CMPM_S                  0
+#define TIMER16_ISR_CMPM_M                  (0x1 << TIMER16_ISR_CMPM_S)
+#define TIMER16_ISR_ARRM_S                  1
+#define TIMER16_ISR_ARRM_M                  (0x1 << TIMER16_ISR_ARRM_S)
+#define TIMER16_ISR_EXTTRIG_S               2
+#define TIMER16_ISR_EXTTRIG_M               (0x1 << TIMER16_ISR_EXTTRIG_S)
+#define TIMER16_ISR_CMPOK_S                 3
+#define TIMER16_ISR_CMPOK_M                 (0x1 << TIMER16_ISR_CMPOK_S)
+#define TIMER16_ISR_ARROK_S                 4
+#define TIMER16_ISR_ARROK_M                 (0x1 << TIMER16_ISR_ARROK_S)
 #define TIMER16_ISR_UP_S                    5
 #define TIMER16_ISR_UP_M                    (0x1 << TIMER16_ISR_UP_S)
 #define TIMER16_ISR_DOWN_S                  6
