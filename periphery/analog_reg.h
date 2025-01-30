@@ -76,8 +76,10 @@
 #define ADC_CONFIG_EXTPAD_EN_M          (1 << ADC_CONFIG_EXTPAD_EN_S)
 #define ADC_CONFIG_SEL_S                4
 #define ADC_CONFIG_SEL_M                (0b111 << ADC_CONFIG_SEL_S)
-#define ADC_CONFIG_SAH_TIME_S           8
-#define ADC_CONFIG_SAH_TIME_M           (0x3F << ADC_CONFIG_SAH_TIME_S)
+#define ADC_CONFIG_SAH_TIME_READ_S      9
+#define ADC_CONFIG_SAH_TIME_WRITE_S     8
+#define ADC_CONFIG_SAH_TIME_READ_M      (0x3F << ADC_CONFIG_SAH_TIME_READ_S)
+#define ADC_CONFIG_SAH_TIME_WRITE_M     (0x3F << ADC_CONFIG_SAH_TIME_WRITE_S)
 
 #define ADC_CONTINUOUS_S         0
 #define ADC_CONTINUOUS_M         (1 << ADC_CONTINUOUS_S)
