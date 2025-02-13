@@ -70,7 +70,7 @@ _start:
     # Init stack and global pointer
     #
     la_abs  sp, __C_STACK_TOP__
-    la_abs  gp, _gp
+    la_abs  gp, __global_pointer$
     
     # Init data
     #

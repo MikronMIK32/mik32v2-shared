@@ -19,7 +19,7 @@ SECTIONS {
     .data : 
     AT( __TEXT_END__ ) {
         PROVIDE(__DATA_START__ = .);
-        _gp = .;
+        __global_pointer$ = . + 2048;
         *(.srodata.cst16) *(.srodata.cst8) *(.srodata.cst4) *(.srodata.cst2) *(.srodata*)
         *(.sdata .sdata.* .gnu.linkonce.s.*)
         *(.data .data.*)
