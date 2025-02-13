@@ -2,13 +2,13 @@
 #define MIK32_MEMORY_MAP_H_INCLUDED
 
 #define EEPROM_BASE_ADDRESS                 0x01000000
-#define EEPROM_SIZE                         (16*1024)
+#define EEPROM_SIZE                         (8*1024)
 
 #define RAM_BASE_ADDRESS                    0x02000000
 #define RAM_SIZE                            (16*1024)
 
 #define SPIFI_BASE_ADDRESS                  0x80000000
-#define SPIFI_SIZE                          (2*1024*1024)
+#define SPIFI_SIZE                          (2*1024*1024*1024)
 
 #define BOOT_BASE_ADDRESS                   0x00000000
 #define BOOT_SIZE                           (16*1024)
