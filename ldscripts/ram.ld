@@ -9,9 +9,9 @@ MEMORY {
   ram (RWX): ORIGIN = 0x02000000, LENGTH = 16K
 }
 
-STACK_SIZE = 1024;
+__stack_size = DEFINED(__stack_size) ? __stack_size : 1024;
 
-CL_SIZE = 16;
+CL_SIZE = 4;
 
 REGION_ALIAS("REGION_TEXT", ram);
 REGION_ALIAS("REGION_RAM", ram);

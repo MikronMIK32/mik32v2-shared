@@ -1,88 +1,119 @@
 
 SECTIONS {
-    .text ORIGIN(REGION_TEXT) : {
-        PROVIDE(__TEXT_START__ = .);
-        *crt0.o(.text .text.*)
-        *(.text.smallsysteminit)
-        *(.text.SmallSystemInit)
-        . = ORIGIN(REGION_TEXT) + 0xC0;
-        KEEP(*crt0.o(.trap_text))
-
-        *(.text)
-        *(.text.*)
-        *(.rodata)
-        *(.rodata.*)      
-        . = ALIGN(CL_SIZE);
-        PROVIDE(__TEXT_END__ = .);
-    } >REGION_TEXT 
-
-    .data : 
-    AT( __TEXT_END__ ) {
-        PROVIDE(__DATA_START__ = .);
-        _gp = .;
-        *(.srodata.cst16) *(.srodata.cst8) *(.srodata.cst4) *(.srodata.cst2) *(.srodata*)
-        *(.sdata .sdata.* .gnu.linkonce.s.*)
-        *(.data .data.*)
-        . = ALIGN(CL_SIZE);
-        PROVIDE(__DATA_END__ = .);
-    } >REGION_RAM
     
-    __DATA_IMAGE_START__ = LOADADDR(.data);
-    __DATA_IMAGE_END__ = LOADADDR(.data) + SIZEOF(.data);
-
-    /* thread-local data segment */
-    .tdata : {
-        PROVIDE(_tls_data = .);
-        PROVIDE(_tdata_begin = .);
-        *(.tdata .tdata.*)
-        PROVIDE(_tdata_end = .);
-        . = ALIGN(CL_SIZE);
-    } >REGION_RAM
-
-    .tbss : {
-        PROVIDE(__BSS_START__ = .);
-        *(.tbss .tbss.*)
-        . = ALIGN(CL_SIZE);
-        PROVIDE(_tbss_end = .);
-    } >REGION_RAM
-
-    /* bss segment */
-    .sbss : {
-        *(.sbss .sbss.* .gnu.linkonce.sb.*)
-        *(.scommon)
-    } >REGION_RAM
-
-    .bss : {
-        *(.bss .bss.*)
-        *(COMMON)
-        . = ALIGN(CL_SIZE);
-        PROVIDE(__BSS_END__ = .);
-    } >REGION_RAM
+    /* startup/crt code segment */
+    .init ORIGIN(REGION_TEXT) : {
+        *crt0.o(.text .text.*)
+        *(.text.SmallSystemInit)
+    } >REGION_TEXT
 
     /* Code intended to be copied to REGION_RAM before execution */
-    .ram_text : 
-    AT( ALIGN(__DATA_IMAGE_END__, CL_SIZE) ) {
+    .ram_text : ALIGN(CL_SIZE) {
         PROVIDE(__RAM_TEXT_START__ = .);
+        *(.small_ram_text)
+        . = 0xC0;
+        PROVIDE(__TRAP_TEXT_START__ = .);
+        KEEP(*crt0.o(.trap_text))
         *(.ram_text)
-        . = ALIGN(CL_SIZE);
         PROVIDE(__RAM_TEXT_END__ = .);
-    } > REGION_RAM
+    } >REGION_RAM AT>REGION_TEXT
     
     __RAM_TEXT_IMAGE_START__ = LOADADDR(.ram_text);
     __RAM_TEXT_IMAGE_END__ = LOADADDR(.ram_text) + SIZEOF(.ram_text);
     ASSERT(__RAM_TEXT_IMAGE_END__ < ORIGIN(REGION_TEXT) + LENGTH(REGION_TEXT), "REGION_TEXT segment overflows")
 
-    ASSERT(__RAM_TEXT_END__ < ORIGIN(REGION_RAM) + LENGTH(REGION_RAM) - STACK_SIZE, "REGION_RAM section overflows")
+    
+    .text : ALIGN(CL_SIZE) {
+        PROVIDE(__TEXT_START__ = .);
+        *(.text)
+        *(.text.*)
+        *(.gnu.linkonce.t.*)
+        *(.rodata)
+        *(.rodata.*)
+        *(.gnu.linkonce.r.*)
+        PROVIDE(__TEXT_END__ = .);
+    } >REGION_TEXT 
 
-    _end = .;
-    PROVIDE(__end = .);
+    /* thread-local data segment */
+    .tdata : ALIGN(CL_SIZE) {
+        PROVIDE(_tls_data = .);
+        PROVIDE(_tdata_start = .);
+        *(.tdata .tdata.*)
+        *(.gnu.linkonce.td.*)
+        PROVIDE(_tdata_end = .);
+    } >REGION_RAM AT>REGION_TEXT
+
+    .tbss : ALIGN(CL_SIZE) {
+        PROVIDE(_tbss_start = .);
+        *(.tbss .tbss.*)
+        *(.gnu.linkonce.tb.*)
+        PROVIDE(_tbss_end = .);
+    } >REGION_RAM
+
+    __TDATA_IMAGE_START__ = LOADADDR(.tdata);
+    __TDATA_IMAGE_END__ = LOADADDR(.tdata) + SIZEOF(.tdata);
+    
+    /* data segment */
+    .data : ALIGN(CL_SIZE) {
+        PROVIDE(__DATA_START__ = .);
+        *(.data .data.*)
+        *(.gnu.linkonce.d.*)
+        PROVIDE(__DATA_END__ = .);
+    } >REGION_RAM AT>REGION_TEXT
+
+    /* small data segment */
+    .sdata : ALIGN(CL_SIZE) {
+        PROVIDE(__SDATA_START__ = .);
+        *(.sdata .sdata.* .sdata2.* .gnu.linkonce.s.*)
+    } >REGION_RAM AT>REGION_TEXT
+
+    /* small read-only data segment */
+    .srodata : ALIGN(CL_SIZE) {
+        PROVIDE(__SRODATA_START__ = .);
+        *(.srodata.cst16) *(.srodata.cst8) *(.srodata.cst4) *(.srodata.cst2) *(.srodata*)
+    } >REGION_RAM AT>REGION_TEXT
+    
+    __DATA_IMAGE_START__ = LOADADDR(.data);
+    __DATA_IMAGE_END__ = LOADADDR(.srodata) + SIZEOF(.srodata);
+
+
+    /* small bss segment */
+    .sbss : ALIGN(CL_SIZE) {
+        PROVIDE(__SBSS_START__ = .);
+        *(.sbss .sbss.*)
+        *(.gnu.linkonce.sb.*)
+        *(.scommon)
+        PROVIDE(__SBSS_END__ = .);
+    } >REGION_RAM
+
+    /* bss segment */
+    .bss : ALIGN(CL_SIZE) {
+        PROVIDE(__BSS_START__ = .);
+        *(.bss .bss.*)
+        *(.gnu.linkonce.b.*)
+        *(COMMON)
+        PROVIDE(__BSS_END__ = .);
+    } >REGION_RAM
+
+    /* We must cover as much of sdata as possible if it exists.  If sdata+bss is
+    smaller than 0x1000 then we should start from bss end to cover as much of
+    the program as possible. */
+
+    __global_pointer$ = MIN(__SDATA_START__ + 2016, MAX(__DATA_START__ + 2016, __BSS_END__ - 2016));
+
+    ASSERT(__BSS_END__ < ORIGIN(REGION_RAM) + LENGTH(REGION_RAM) - __stack_size, "REGION_RAM section overflows")
 
     /* End of uninitalized data segement */
+    _end = .;
+    PROVIDE(__end = .);
+    PROVIDE(end = .);   /* Define the starting position of Heap */
 
-    .stack ORIGIN(REGION_RAM) + LENGTH(REGION_RAM) - STACK_SIZE : {
-        FILL(0);
+
+    .stack ORIGIN(REGION_RAM) + LENGTH(REGION_RAM) - __stack_size : {
+        . = ALIGN(16);
+        PROVIDE( _heap_end = . );   /* Define the end of the Heap, and end of the stack. */
         PROVIDE(__STACK_START__ = .);
-        . += STACK_SIZE;
+        . = __stack_size;
         PROVIDE(__C_STACK_TOP__ = .);
         PROVIDE(__STACK_END__ = .);
     } >REGION_RAM

@@ -1,5 +1,5 @@
 
-#define EXCEPTION_STACK_SPACE 32*4
+#define EXCEPTION_STACK_SPACE 31*4
 #define EXCEPTION_SAVED_REGISTERS 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31
 
 .globl _start, main
@@ -64,13 +64,13 @@ _start:
     
     li t0, 128000
     start_loop_delay:
-    nop
+    #nop
     addi t0, t0, -1
     bnez t0, start_loop_delay
     # Init stack and global pointer
     #
     la_abs  sp, __C_STACK_TOP__
-    la_abs  gp, _gp
+    la_abs  gp, __global_pointer$
     
     # Init data
     #
@@ -88,9 +88,14 @@ _start:
     
     # Clear bss
     #
-    la_abs  a1, __BSS_START__
+    la_abs  a1, __SBSS_START__
     la_abs  a2, __BSS_END__
     memset a1, a2, zero
+
+    # Init mtvec
+    #
+    la_abs t0, __TRAP_TEXT_START__
+    csrw mtvec, t0
 
     #ifdef MIK32V0
     # Enable pad_config clocking
@@ -124,7 +129,7 @@ raw_trap_handler:
     // Save registers
     addi    sp, sp, -(EXCEPTION_STACK_SPACE)
     .irp index, EXCEPTION_SAVED_REGISTERS
-        sw      x\index, 4*index(sp)
+        sw      x\index, 4*(index-1)(sp)
     .endr
     
     // Call handler 
@@ -133,7 +138,7 @@ raw_trap_handler:
     
     // restore registers
     .irp index, EXCEPTION_SAVED_REGISTERS
-        lw      x\index, 4*index(sp)
+        lw      x\index, 4*(index-1)(sp)
     .endr
     addi    sp, sp, EXCEPTION_STACK_SPACE
     mret
