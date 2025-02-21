@@ -11,7 +11,7 @@ MEMORY {
 
 __stack_size = DEFINED(__stack_size) ? __stack_size : 1024;
 
-CL_SIZE = 4;
+SECTION_ALIGNMENT = 4;
 
 REGION_ALIAS("REGION_TEXT", ram);
 REGION_ALIAS("REGION_RAM", ram);
