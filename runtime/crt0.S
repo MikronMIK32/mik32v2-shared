@@ -99,7 +99,24 @@ _start:
     li t1, 0x50014
     sw t0, (t1)
     #endif
-    
+
+    # SCR1_TIMER->MTIMECMP = -1
+    #
+    li t0, 0x490010
+    li t1, -1
+    sw t1, (t0)
+    sw t1, 4(t0)
+
+    # GPIO_IRQ->LINE_MUX = 0xAAAAAAAA
+    #
+    li a0, 0x0005001C
+    li t0, 0x00010000
+    sw t0, (a0)
+    li a1, 0x00084C04
+    li t1, 0xAAAAAAAA
+    sw t1, (a1)
+    sw t0, 4(a0)
+
     jalr_abs ra, SmallSystemInit
     jalr_abs ra, SystemInit
     jalr_abs ra, main
