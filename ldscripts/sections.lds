@@ -13,6 +13,7 @@ SECTIONS {
         . = ORIGIN(REGION_RAM) + 0xC0;
         PROVIDE(__TRAP_TEXT_START__ = .);
         KEEP(*crt0.o(.trap_text))
+        KEEP(*(.trap_text))
         *(.ram_text)
         . = ALIGN(4);
         PROVIDE(__RAM_TEXT_END__ = .);
