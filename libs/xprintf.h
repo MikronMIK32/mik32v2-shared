@@ -5,6 +5,10 @@
 #ifndef _STRFUNC
 #define _STRFUNC
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define _USE_XFUNC_OUT	1	/* 1: Use output functions */
 #define	_CR_CRLF		1	/* 1: Convert \n ==> \r\n in the output char */
 #define	_USE_LONGLONG	0	/* 1: Enable long long integer in type "ll". */
@@ -36,6 +40,10 @@ extern unsigned char (*xfunc_in)(void);
 int xgets (char* buff, int len);
 int xfgets (unsigned char (*func)(void), char* buff, int len);
 int xatoi (char** str, long* res);
+#endif
+
+#ifdef __cplusplus
+}
 #endif
 
 #endif

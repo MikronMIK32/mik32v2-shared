@@ -6,12 +6,21 @@
 #define BOOT_SPIFI                   2
 
 #ifndef __ASSEMBLER__
-    #include <inttypes.h> 
-    typedef struct
-    {   
-        volatile uint32_t BOOT;
-    } BOOT_MANAGER_TypeDef;
+
+#ifdef __cplusplus
+extern "C" {
 #endif
 
-#endif 
+#include <inttypes.h> 
+typedef struct
+{   
+    volatile uint32_t BOOT;
+} BOOT_MANAGER_TypeDef;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // __ASSEMBLER__
+#endif // BOOT_MANAGER_H_INCLUDED
 

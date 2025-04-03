@@ -36,15 +36,24 @@
 
 
 #ifndef __ASSEMBLER__
-    #include <inttypes.h>
 
-    typedef struct
-    {
-        volatile uint32_t BLOCK;               
-        volatile uint32_t KEY;       
-        volatile uint32_t INIT;       
-        volatile uint32_t CONFIG;       
-    } CRYPTO_TypeDef;
+#ifdef __cplusplus
+extern "C" {
 #endif
 
+#include <inttypes.h>
+
+typedef struct
+{
+    volatile uint32_t BLOCK;               
+    volatile uint32_t KEY;       
+    volatile uint32_t INIT;       
+    volatile uint32_t CONFIG;       
+} CRYPTO_TypeDef;
+    
+#ifdef __cplusplus
+}
+#endif
+
+#endif // __ASSEMBLER__
 #endif // CRYPTO_H_INCLUDED

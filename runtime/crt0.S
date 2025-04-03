@@ -107,7 +107,9 @@ _start:
     
     jalr_abs ra, SmallSystemInit
     jalr_abs ra, SystemInit
+    jalr_abs ra, __libc_init_array
     jalr_abs ra, main
+    jalr_abs ra, __libc_fini_array
 1:  wfi
     j 1b
 

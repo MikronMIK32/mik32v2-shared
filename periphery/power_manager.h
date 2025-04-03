@@ -93,30 +93,37 @@
 
 
 #ifndef __ASSEMBLER__
-    #include <inttypes.h> 
-    typedef struct
-    {   
-       
-      
-        volatile uint32_t DIV_AHB;
-        volatile uint32_t DIV_APB_M;
-        volatile uint32_t DIV_APB_P;
-        volatile uint32_t CLK_AHB_SET;
-        volatile uint32_t CLK_AHB_CLEAR;
-        volatile uint32_t CLK_APB_M_SET;
-        volatile uint32_t CLK_APB_M_CLEAR;
-        volatile uint32_t CLK_APB_P_SET;
-        volatile uint32_t CLK_APB_P_CLEAR;
-        volatile uint32_t AHB_CLK_MUX;
-        volatile uint32_t WDT_CLK_MUX;
-        volatile uint32_t CPU_RTC_CLK_MUX;
-        volatile uint32_t TIMER_CFG;
-        volatile uint32_t FREQ_MASK;
-        volatile uint32_t FREQ_STATUS;
-        volatile uint32_t SLEEP_MODE;
 
-    } PM_TypeDef;
+#ifdef __cplusplus
+extern "C" {
 #endif
 
-#endif 
+#include <inttypes.h> 
+
+typedef struct
+{   
+    volatile uint32_t DIV_AHB;
+    volatile uint32_t DIV_APB_M;
+    volatile uint32_t DIV_APB_P;
+    volatile uint32_t CLK_AHB_SET;
+    volatile uint32_t CLK_AHB_CLEAR;
+    volatile uint32_t CLK_APB_M_SET;
+    volatile uint32_t CLK_APB_M_CLEAR;
+    volatile uint32_t CLK_APB_P_SET;
+    volatile uint32_t CLK_APB_P_CLEAR;
+    volatile uint32_t AHB_CLK_MUX;
+    volatile uint32_t WDT_CLK_MUX;
+    volatile uint32_t CPU_RTC_CLK_MUX;
+    volatile uint32_t TIMER_CFG;
+    volatile uint32_t FREQ_MASK;
+    volatile uint32_t FREQ_STATUS;
+    volatile uint32_t SLEEP_MODE;
+} PM_TypeDef;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // __ASSEMBLER__
+#endif // PM_H_INCLUDED
 

@@ -38,28 +38,37 @@
 
 
 #ifndef __ASSEMBLER__
-    #include <inttypes.h> 
-    typedef struct
-    {
-        union 
-        {
-            struct 
-            {
-                volatile uint8_t _space_Key[WDT_KEY];
-                volatile uint8_t KEY;
-            };
-            struct 
-            {
-                volatile uint8_t _space_Con[WDT_CON];
-                volatile uint32_t CON;
-            };
-            struct 
-            {
-                volatile uint8_t _space_Sta[WDT_STA];
-                volatile uint32_t STA;
-            };
-        };
-    } WDT_TypeDef;
+
+#ifdef __cplusplus
+extern "C" {
 #endif
 
+#include <inttypes.h> 
+typedef struct
+{
+    union 
+    {
+        struct 
+        {
+            volatile uint8_t _space_Key[WDT_KEY];
+            volatile uint8_t KEY;
+        };
+        struct 
+        {
+            volatile uint8_t _space_Con[WDT_CON];
+            volatile uint32_t CON;
+        };
+        struct 
+        {
+            volatile uint8_t _space_Sta[WDT_STA];
+            volatile uint32_t STA;
+        };
+    };
+} WDT_TypeDef;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // __ASSEMBLER__
 #endif // WDT_H_INCLUDED

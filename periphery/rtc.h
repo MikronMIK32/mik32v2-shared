@@ -80,33 +80,42 @@
 
 
 #ifndef __ASSEMBLER__
-    #include <inttypes.h> 
-    typedef struct
-    {   
-       
-        union
-        {
-            struct {
-                volatile uint32_t TOS:4;
-                volatile uint32_t S:4;
-                volatile uint32_t TS:3;
-                volatile uint32_t M:4;
-                volatile uint32_t TM:3;
-                volatile uint32_t H:4;
-                volatile uint32_t TH:2;
-                volatile uint32_t DOW:3;
-            };
-            uint32_t TIME;
-        };
-        
-        volatile uint32_t DATE;  
-        volatile uint32_t TALRM;         
-        volatile uint32_t DALRM;         
-        volatile uint32_t CTRL;         
-        volatile uint32_t _space[3];
-        volatile uint32_t REG[16];
-    } RTC_TypeDef;
+
+#ifdef __cplusplus
+extern "C" {
 #endif
 
-#endif 
+#include <inttypes.h> 
+typedef struct
+{   
+    
+    union
+    {
+        struct {
+            volatile uint32_t TOS:4;
+            volatile uint32_t S:4;
+            volatile uint32_t TS:3;
+            volatile uint32_t M:4;
+            volatile uint32_t TM:3;
+            volatile uint32_t H:4;
+            volatile uint32_t TH:2;
+            volatile uint32_t DOW:3;
+        };
+        uint32_t TIME;
+    };
+    
+    volatile uint32_t DATE;  
+    volatile uint32_t TALRM;         
+    volatile uint32_t DALRM;         
+    volatile uint32_t CTRL;         
+    volatile uint32_t _space[3];
+    volatile uint32_t REG[16];
+} RTC_TypeDef;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // __ASSEMBLER__
+#endif // RTC_H_INCLUDED
 

@@ -8,24 +8,32 @@
 #define GPIO_IRQ_LINE_MUX(mux, line_num) (((mux) << ((line_num) << 2)) & GPIO_IRQ_LINE_MUX_M(line_num))
 
 #ifndef __ASSEMBLER__
-    #include <inttypes.h>
 
-    typedef struct
-    {
-        volatile uint32_t STATE;
-        volatile uint32_t LINE_MUX;
-        volatile uint32_t INTERRUPT;
-        volatile uint32_t ENABLE_SET;
-        volatile uint32_t ENABLE_CLEAR;
-        volatile uint32_t EDGE;
-        volatile uint32_t LEVEL;
-        volatile uint32_t LEVEL_SET;
-        volatile uint32_t LEVEL_CLEAR;
-        volatile uint32_t ANY_EDGE_SET;
-        volatile uint32_t ANY_EDGE_CLEAR;
-        volatile uint32_t CLEAR;        
-    } GPIO_IRQ_TypeDef;
-
+#ifdef __cplusplus
+extern "C" {
 #endif
 
-#endif    
+#include <inttypes.h>
+
+typedef struct
+{
+    volatile uint32_t STATE;
+    volatile uint32_t LINE_MUX;
+    volatile uint32_t INTERRUPT;
+    volatile uint32_t ENABLE_SET;
+    volatile uint32_t ENABLE_CLEAR;
+    volatile uint32_t EDGE;
+    volatile uint32_t LEVEL;
+    volatile uint32_t LEVEL_SET;
+    volatile uint32_t LEVEL_CLEAR;
+    volatile uint32_t ANY_EDGE_SET;
+    volatile uint32_t ANY_EDGE_CLEAR;
+    volatile uint32_t CLEAR;        
+} GPIO_IRQ_TypeDef;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // __ASSEMBLER__
+#endif // GPIO_IRQ_H_INCLUDED

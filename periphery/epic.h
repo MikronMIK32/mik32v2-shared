@@ -46,19 +46,28 @@
 
 
 #ifndef __ASSEMBLER__
-    #include <inttypes.h>
 
-    typedef struct
-    {  
-        volatile uint32_t MASK_EDGE_SET;        // 0x00
-        volatile uint32_t MASK_EDGE_CLEAR;      // 0x04
-        volatile uint32_t MASK_LEVEL_SET;       // 0x08
-        volatile uint32_t MASK_LEVEL_CLEAR;     // 0x0C   
-        volatile uint32_t reserved[2];          // reserved   
-        volatile uint32_t CLEAR;                // 0x18
-        volatile uint32_t STATUS;               // 0x1C
-        volatile uint32_t RAW_STATUS;           // 0x20  
-    } EPIC_TypeDef;
+#ifdef __cplusplus
+extern "C" {
 #endif
 
+#include <inttypes.h>
+
+typedef struct
+{  
+    volatile uint32_t MASK_EDGE_SET;        // 0x00
+    volatile uint32_t MASK_EDGE_CLEAR;      // 0x04
+    volatile uint32_t MASK_LEVEL_SET;       // 0x08
+    volatile uint32_t MASK_LEVEL_CLEAR;     // 0x0C   
+    volatile uint32_t reserved[2];          // reserved   
+    volatile uint32_t CLEAR;                // 0x18
+    volatile uint32_t STATUS;               // 0x1C
+    volatile uint32_t RAW_STATUS;           // 0x20  
+} EPIC_TypeDef;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // __ASSEMBLER__
 #endif // EPIC_H_INCLUDED

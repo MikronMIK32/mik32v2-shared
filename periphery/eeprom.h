@@ -90,23 +90,30 @@
 
 
 #ifndef __ASSEMBLER__
-    #include <inttypes.h>
 
-    typedef struct
-    {
-        volatile uint32_t EEDAT;
-        volatile uint32_t EEA;
-        volatile uint32_t EECON;
-        volatile uint32_t EESTA;
-        volatile uint32_t EERB;
-        volatile uint32_t EEADJ;
-        volatile uint32_t NCYCRL;
-        volatile uint32_t NCYCEP1;
-        volatile uint32_t NCYCEP2;
-
-    } EEPROM_REGS_TypeDef;
+#ifdef __cplusplus
+extern "C" {
 #endif
 
+#include <inttypes.h>
 
+typedef struct
+{
+    volatile uint32_t EEDAT;
+    volatile uint32_t EEA;
+    volatile uint32_t EECON;
+    volatile uint32_t EESTA;
+    volatile uint32_t EERB;
+    volatile uint32_t EEADJ;
+    volatile uint32_t NCYCRL;
+    volatile uint32_t NCYCEP1;
+    volatile uint32_t NCYCEP2;
+} EEPROM_REGS_TypeDef;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // __ASSEMBLER__
 #endif // EEPROM_H_INCLUDED
 

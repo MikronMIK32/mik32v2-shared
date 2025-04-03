@@ -104,26 +104,34 @@
 
 
 #ifndef __ASSEMBLER__
-    #include <inttypes.h> 
-    typedef struct
-    {
-      volatile uint32_t CTRL;           //Offset: 0x000
-      volatile uint32_t CMD;         	  //Offset: 0x004
-      volatile uint32_t ADDR;         	//Offset: 0x008
-      volatile uint32_t IDATA;        	//Offset: 0x00C   
-      volatile uint32_t CLIMIT;         //Offset: 0x010 
-      union
-      {
-            volatile uint32_t DATA;			//Offset: 0x014  
-            volatile uint8_t  DATA8;		
-            volatile uint16_t DATA16;		
-            volatile uint32_t DATA32;		
-      };  
-	  
-      volatile uint32_t MCMD;           //Offset: 0x018
-      volatile uint32_t STAT;           //Offset: 0x01C
-    }SPIFI_CONFIG_TypeDef;
+
+#ifdef __cplusplus
+extern "C" {
 #endif
 
+#include <inttypes.h> 
+typedef struct
+{
+    volatile uint32_t CTRL;           //Offset: 0x000
+    volatile uint32_t CMD;         	  //Offset: 0x004
+    volatile uint32_t ADDR;         	//Offset: 0x008
+    volatile uint32_t IDATA;        	//Offset: 0x00C   
+    volatile uint32_t CLIMIT;         //Offset: 0x010 
+    union
+    {
+        volatile uint32_t DATA;			//Offset: 0x014  
+        volatile uint8_t  DATA8;		
+        volatile uint16_t DATA16;		
+        volatile uint32_t DATA32;		
+    };  
 
+    volatile uint32_t MCMD;           //Offset: 0x018
+    volatile uint32_t STAT;           //Offset: 0x01C
+}SPIFI_CONFIG_TypeDef;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // __ASSEMBLER__
 #endif // SPIFI_H_INCLUDED

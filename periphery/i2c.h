@@ -145,23 +145,32 @@
 
 
 #ifndef __ASSEMBLER__
-    #include <inttypes.h>
 
-    typedef struct
-    {
-        volatile uint32_t CR1;
-        volatile uint32_t CR2;
-        volatile uint32_t OAR1;
-        volatile uint32_t OAR2;
-        volatile uint32_t TIMINGR;
-        volatile uint32_t reserved0;
-        volatile uint32_t ISR;
-        volatile uint32_t ICR;
-        volatile uint32_t reserved1;
-        volatile uint32_t RXDR;
-        volatile uint32_t TXDR;
-    } I2C_TypeDef;
+#ifdef __cplusplus
+extern "C" {
 #endif
 
+#include <inttypes.h>
+
+typedef struct
+{
+    volatile uint32_t CR1;
+    volatile uint32_t CR2;
+    volatile uint32_t OAR1;
+    volatile uint32_t OAR2;
+    volatile uint32_t TIMINGR;
+    volatile uint32_t reserved0;
+    volatile uint32_t ISR;
+    volatile uint32_t ICR;
+    volatile uint32_t reserved1;
+    volatile uint32_t RXDR;
+    volatile uint32_t TXDR;
+} I2C_TypeDef;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // __ASSEMBLER__
 #endif // I2C_H_INCLUDED
 

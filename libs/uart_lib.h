@@ -1,6 +1,10 @@
 #ifndef UART_LIB_H_INCLUDED
 #define UART_LIB_H_INCLUDED
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /** \file
     Библиотека для работы с контроллером USART.
 */
@@ -124,5 +128,8 @@ void UART_ClearRxFifo(UART_TypeDef* uart);
 
 void __attribute__((weak)) xputc(char c);
 
+#ifdef __cplusplus
+}
+#endif
 
 #endif // UART_LIB_H_INCLUDED

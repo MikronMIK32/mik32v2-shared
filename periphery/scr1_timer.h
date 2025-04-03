@@ -12,33 +12,42 @@
 
 
 #ifndef __ASSEMBLER__
-    #include <inttypes.h>
 
-    typedef struct
-    {
-        volatile uint32_t TIMER_CTRL;
-        volatile uint32_t TIMER_DIV;
-        union 
-        {
-            struct 
-            {
-                volatile uint32_t MTIME;
-                volatile uint32_t MTIMEH;        
-            };
-            uint64_t TIME;
-        };
-        
-        union
-        {
-            struct
-            {
-                volatile uint32_t MTIMECMP;
-                volatile uint32_t MTIMECMPH;        
-            };
-            uint64_t TIMECMP;
-        };
-        
-    } SCR1_TIMER_TypeDef;
+#ifdef __cplusplus
+extern "C" {
 #endif
 
+#include <inttypes.h>
+
+typedef struct
+{
+    volatile uint32_t TIMER_CTRL;
+    volatile uint32_t TIMER_DIV;
+    union 
+    {
+        struct 
+        {
+            volatile uint32_t MTIME;
+            volatile uint32_t MTIMEH;        
+        };
+        uint64_t TIME;
+    };
+    
+    union
+    {
+        struct
+        {
+            volatile uint32_t MTIMECMP;
+            volatile uint32_t MTIMECMPH;        
+        };
+        uint64_t TIMECMP;
+    };
+    
+} SCR1_TIMER_TypeDef;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // __ASSEMBLER__
 #endif // SCR1_TIMER_H_INCLUDED

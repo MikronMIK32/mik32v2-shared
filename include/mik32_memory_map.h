@@ -58,6 +58,11 @@
 
 #define SCR1_TIMER_BASE_ADDRESS             0x00490000
 
+#ifndef __ASSEMBLER__
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #define DMA_CONFIG      (( DMA_CONFIG_TypeDef       *)  DMA_CONFIG_BASE_ADDRESS     )
 
@@ -98,7 +103,11 @@
 
 #define SCR1_TIMER      (( SCR1_TIMER_TypeDef       *)  SCR1_TIMER_BASE_ADDRESS     )
 
+#ifdef __cplusplus
+}
+#endif
 
+#endif // __ASSEMBLER__
 
 // Clock gating masks to be used with PM module 
 //AHB BUS
@@ -239,4 +248,4 @@
 #define DMA_TIMER32_0_INDEX         12
 
 
-#endif // 32_MEMORY_MAP_H_INCLUDED
+#endif // MIK32_MEMORY_MAP_H_INCLUDED

@@ -82,20 +82,30 @@
 
     
 #ifndef __ASSEMBLER__
-    #include <inttypes.h> 
-    typedef struct
-    {   
-       
-        volatile uint32_t SYS_MASK;  
-        volatile uint32_t SYS_LEVEL;         
-        volatile uint32_t SYS_POWEROFF;         
-        volatile uint32_t POWER_SWITCH;
-        volatile uint32_t CLOCKS_BU;  
-        volatile uint32_t CLOCKS_SYS;  
-        volatile uint32_t RTC_CONRTOL;
-        volatile uint32_t STOP;
-    } WU_TypeDef;
+
+#ifdef __cplusplus
+extern "C" {
 #endif
 
-#endif 
+#include <inttypes.h> 
+
+typedef struct
+{   
+    
+    volatile uint32_t SYS_MASK;  
+    volatile uint32_t SYS_LEVEL;         
+    volatile uint32_t SYS_POWEROFF;         
+    volatile uint32_t POWER_SWITCH;
+    volatile uint32_t CLOCKS_BU;  
+    volatile uint32_t CLOCKS_SYS;  
+    volatile uint32_t RTC_CONRTOL;
+    volatile uint32_t STOP;
+} WU_TypeDef;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // __ASSEMBLER__
+#endif // WU_H_INCLUDED
 

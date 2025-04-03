@@ -93,24 +93,32 @@
 
 
 #ifndef __ASSEMBLER__
-    #include <inttypes.h> 
-    typedef struct
-    {
-      volatile uint32_t CONFIG;             /* Offset: 0x000 (R/W)    */
-      volatile uint32_t INT_STATUS;         /* Offset: 0x004 (R/RC)  */
-      volatile uint32_t INT_ENABLE;         /* Offset: 0x008 (WO) */
-      volatile uint32_t INT_DISABLE;        /* Offset: 0x00C (WO)  */
-      volatile uint32_t INT_MASK;           /* Offset: 0x010 (R)  */
-      volatile uint32_t ENABLE;             /* Offset: 0x014 (R/W)  */
-      volatile uint32_t DELAY;              /* Offset: 0x018 (R/W)  */
-      volatile uint32_t TXDATA;             /* Offset: 0x01C (WO)  */
-      volatile uint32_t RXDATA;             /* Offset: 0x020 (RO)  */
-      volatile uint32_t SIC;                /* Offset: 0x024 (R/W)  Slave_Idle_Count */
-      volatile uint32_t TX_THR;             /* Offset: 0x028 (R/W)  TX threshold */
-      volatile uint32_t reserved[0X34];     /* Empty array to fill the space*/
-      volatile uint32_t ID;                 /* Offset: 0x0FC (RO)  Module ID 0x01090100 */
-    }SPI_TypeDef;
+
+#ifdef __cplusplus
+extern "C" {
 #endif
 
+#include <inttypes.h> 
+typedef struct
+{
+    volatile uint32_t CONFIG;             /* Offset: 0x000 (R/W)    */
+    volatile uint32_t INT_STATUS;         /* Offset: 0x004 (R/RC)  */
+    volatile uint32_t INT_ENABLE;         /* Offset: 0x008 (WO) */
+    volatile uint32_t INT_DISABLE;        /* Offset: 0x00C (WO)  */
+    volatile uint32_t INT_MASK;           /* Offset: 0x010 (R)  */
+    volatile uint32_t ENABLE;             /* Offset: 0x014 (R/W)  */
+    volatile uint32_t DELAY;              /* Offset: 0x018 (R/W)  */
+    volatile uint32_t TXDATA;             /* Offset: 0x01C (WO)  */
+    volatile uint32_t RXDATA;             /* Offset: 0x020 (RO)  */
+    volatile uint32_t SIC;                /* Offset: 0x024 (R/W)  Slave_Idle_Count */
+    volatile uint32_t TX_THR;             /* Offset: 0x028 (R/W)  TX threshold */
+    volatile uint32_t reserved[0X34];     /* Empty array to fill the space*/
+    volatile uint32_t ID;                 /* Offset: 0x0FC (RO)  Module ID 0x01090100 */
+}SPI_TypeDef;
 
+#ifdef __cplusplus
+}
+#endif
+
+#endif // __ASSEMBLER__
 #endif // SPI_H_INCLUDED

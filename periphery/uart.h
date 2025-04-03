@@ -126,25 +126,32 @@
 
 
 #ifndef __ASSEMBLER__
-    #include <inttypes.h>
 
-    
-    typedef struct
-    {  
-        volatile uint32_t CONTROL1;
-        volatile uint32_t CONTROL2;
-        volatile uint32_t CONTROL3;
-        volatile uint32_t DIVIDER;
-        volatile uint32_t _reserved0;
-        volatile uint32_t _reserved1;
-        volatile uint32_t _reserved2;
-        volatile uint32_t FLAGS;
-        volatile uint32_t _reserved3;              
-        volatile uint32_t RXDATA;
-        volatile uint32_t TXDATA;
-        volatile uint32_t MODEM;
-        
-    } UART_TypeDef;
+#ifdef __cplusplus
+extern "C" {
 #endif
 
+#include <inttypes.h>
+
+typedef struct
+{  
+    volatile uint32_t CONTROL1;
+    volatile uint32_t CONTROL2;
+    volatile uint32_t CONTROL3;
+    volatile uint32_t DIVIDER;
+    volatile uint32_t _reserved0;
+    volatile uint32_t _reserved1;
+    volatile uint32_t _reserved2;
+    volatile uint32_t FLAGS;
+    volatile uint32_t _reserved3;              
+    volatile uint32_t RXDATA;
+    volatile uint32_t TXDATA;
+    volatile uint32_t MODEM;
+} UART_TypeDef;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // __ASSEMBLER__
 #endif // UART_H_INCLUDED

@@ -86,31 +86,39 @@
 
 
 #ifndef __ASSEMBLER__
-    #include <inttypes.h>
 
-    typedef struct
-    {
-        volatile uint32_t CNTRL;
-        volatile uint32_t OCR;
-        volatile uint32_t ICR;
-        volatile uint32_t reserved0;
-    } TIMER32_CHANNEL_TypeDef;
-    
-    typedef struct
-    {
-        volatile uint32_t VALUE;        /* Offset: 0x000 (R)  */
-        volatile uint32_t TOP;          /* Offset: 0x004 (R/W)  */
-        volatile uint32_t PRESCALER;    /* Offset: 0x008 (R/W)  */
-        volatile uint32_t CONTROL;      /* Offset: 0x00C (R/W)  */
-        volatile uint32_t ENABLE;       /* Offset: 0x010 (R/W)  */
-        volatile uint32_t INT_MASK;      /* Offset: 0x014 (R/W)  */
-        volatile uint32_t INT_CLEAR;     /* Offset: 0x018 (R/W)  */
-        volatile uint32_t INT_FLAGS;     /* Offset: 0x01C (R)  */
-        
-        volatile uint8_t  reserved0[0x60];
-        TIMER32_CHANNEL_TypeDef CHANNELS[4];
-        
-    } TIMER32_TypeDef;
+#ifdef __cplusplus
+extern "C" {
 #endif
 
+#include <inttypes.h>
+
+typedef struct
+{
+    volatile uint32_t CNTRL;
+    volatile uint32_t OCR;
+    volatile uint32_t ICR;
+    volatile uint32_t reserved0;
+} TIMER32_CHANNEL_TypeDef;
+
+typedef struct
+{
+    volatile uint32_t VALUE;        /* Offset: 0x000 (R)  */
+    volatile uint32_t TOP;          /* Offset: 0x004 (R/W)  */
+    volatile uint32_t PRESCALER;    /* Offset: 0x008 (R/W)  */
+    volatile uint32_t CONTROL;      /* Offset: 0x00C (R/W)  */
+    volatile uint32_t ENABLE;       /* Offset: 0x010 (R/W)  */
+    volatile uint32_t INT_MASK;      /* Offset: 0x014 (R/W)  */
+    volatile uint32_t INT_CLEAR;     /* Offset: 0x018 (R/W)  */
+    volatile uint32_t INT_FLAGS;     /* Offset: 0x01C (R)  */
+    
+    volatile uint8_t  reserved0[0x60];
+    TIMER32_CHANNEL_TypeDef CHANNELS[4];
+} TIMER32_TypeDef;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // __ASSEMBLER__
 #endif // TIMER32_H_INCLUDED

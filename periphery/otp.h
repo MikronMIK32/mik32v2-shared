@@ -64,10 +64,15 @@
 
 
 #ifndef __ASSEMBLER__
-    #include <inttypes.h>
 
-    typedef struct
-    {
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#include <inttypes.h>
+
+typedef struct
+{
     //--------------------------
     // OTP registers
     //--------------------------
@@ -80,11 +85,12 @@
     volatile uint32_t OTPADJ;
     volatile uint32_t OTPWT1;
     volatile uint32_t OTPWT2;
-    
+} OTP_TypeDef;
 
-    } OTP_TypeDef;
+#ifdef __cplusplus
+}
 #endif
 
-
+#endif // __ASSEMBLER__
 #endif // OTP_H_INCLUDED
 

@@ -29,16 +29,24 @@
 #define PVD_STATUS_OVER_FLAG_S     (1 << PVD_STATUS_OVER_FLAG_S)
 
 #ifndef __ASSEMBLER__
-    #include <inttypes.h>
 
-    typedef struct
-    {
-        volatile uint32_t       DPF_VALUE;
-        volatile uint32_t       CONFIG;
-        volatile uint32_t       STATUS;
-    } PVD_CONTROL_TypeDef;
-    
+#ifdef __cplusplus
+extern "C" {
 #endif
 
+#include <inttypes.h>
+
+typedef struct
+{
+    volatile uint32_t       DPF_VALUE;
+    volatile uint32_t       CONFIG;
+    volatile uint32_t       STATUS;
+} PVD_CONTROL_TypeDef;
+    
+#ifdef __cplusplus
+}
+#endif
+
+#endif // __ASSEMBLER__
 #endif // PVD_CONTROL_H_INCLUDED
 

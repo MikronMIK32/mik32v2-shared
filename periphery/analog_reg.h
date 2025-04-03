@@ -112,42 +112,50 @@
 
 
 #ifndef __ASSEMBLER__
-    #include <inttypes.h>
 
-    typedef struct
-    {
-        volatile uint32_t CFG;
-        volatile uint32_t VALUE;        
-    } DAC_TypeDef;
-    
-    
-    typedef struct
-    {
-        volatile DAC_TypeDef    DAC0;       
-        volatile DAC_TypeDef    DAC1;   
-        volatile uint32_t       PVD_DPF_VALUE;
-        volatile uint32_t       PVD_CONFIG;
-        volatile uint32_t       PVD_STATUS;
-        volatile uint32_t       TSENS_CFG;
-        volatile uint32_t       TSENS_THRESHOLD;
-        volatile uint32_t       TSENS_IRQ;
-        volatile uint32_t       TSENS_CLEAR_IRQ;
-        volatile uint32_t       TSENS_VALUE;
-        volatile uint32_t       TSENS_SINGLE;
-        volatile uint32_t       TSENS_CONTINUOUS;
-        volatile uint32_t       REFV_CONFIG;
-        volatile uint32_t       ADC_CONFIG;
-        volatile uint32_t       ADC_CONTINUOUS;
-        volatile uint32_t       ADC_SINGLE;
-        volatile uint32_t       ADC_VALID;
-        volatile uint32_t       ADC_VALUE;
-        volatile uint32_t       TEST_MUX;
-        
-        
-    } ANALOG_REG_TypeDef;
-    
+#ifdef __cplusplus
+extern "C" {
 #endif
 
+#include <inttypes.h>
+
+typedef struct
+{
+    volatile uint32_t CFG;
+    volatile uint32_t VALUE;        
+} DAC_TypeDef;
+
+
+typedef struct
+{
+    volatile DAC_TypeDef    DAC0;       
+    volatile DAC_TypeDef    DAC1;   
+    volatile uint32_t       PVD_DPF_VALUE;
+    volatile uint32_t       PVD_CONFIG;
+    volatile uint32_t       PVD_STATUS;
+    volatile uint32_t       TSENS_CFG;
+    volatile uint32_t       TSENS_THRESHOLD;
+    volatile uint32_t       TSENS_IRQ;
+    volatile uint32_t       TSENS_CLEAR_IRQ;
+    volatile uint32_t       TSENS_VALUE;
+    volatile uint32_t       TSENS_SINGLE;
+    volatile uint32_t       TSENS_CONTINUOUS;
+    volatile uint32_t       REFV_CONFIG;
+    volatile uint32_t       ADC_CONFIG;
+    volatile uint32_t       ADC_CONTINUOUS;
+    volatile uint32_t       ADC_SINGLE;
+    volatile uint32_t       ADC_VALID;
+    volatile uint32_t       ADC_VALUE;
+    volatile uint32_t       TEST_MUX;
+    
+    
+} ANALOG_REG_TypeDef;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // __ASSEMBLER__
 #endif // ANALOG_REG_H_INCLUDED
 
     

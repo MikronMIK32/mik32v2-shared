@@ -12,23 +12,31 @@
 
 
 #ifndef __ASSEMBLER__
-    #include <inttypes.h>
 
-    typedef struct
-    {
-        union
-        {
-            volatile uint32_t SET;
-            volatile uint32_t STATE;
-        };                
-        volatile uint32_t CLEAR;               
-        volatile uint32_t DIRECTION_OUT;       
-        volatile uint32_t DIRECTION_IN;        
-        volatile uint32_t OUTPUT;
-        volatile uint32_t CONTROL;  
-        
-    } GPIO_TypeDef;
-
+#ifdef __cplusplus
+extern "C" {
 #endif
 
-#endif    
+#include <inttypes.h>
+
+typedef struct
+{
+    union
+    {
+        volatile uint32_t SET;
+        volatile uint32_t STATE;
+    };                
+    volatile uint32_t CLEAR;               
+    volatile uint32_t DIRECTION_OUT;       
+    volatile uint32_t DIRECTION_IN;        
+    volatile uint32_t OUTPUT;
+    volatile uint32_t CONTROL;  
+    
+} GPIO_TypeDef;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // __ASSEMBLER__
+#endif // GPIO_H_INCLUDED 

@@ -98,23 +98,30 @@
 #define DMA_CONFIG_CURRENT_VALUE_M         (1 << DMA_CONFIG_CURRENT_VALUE_S)
 
 #ifndef __ASSEMBLER__
-    #include <inttypes.h>
 
-    typedef struct
-    {
-
-        volatile uint32_t DST;      // 0x00
-        volatile uint32_t SRC;      // 0x04
-        volatile uint32_t LEN;      // 0x08        
-        volatile uint32_t CFG;      // 0x0c
-    } DMA_CHANNEL_TypeDef;
-    
-    typedef struct
-    { 
-        DMA_CHANNEL_TypeDef CHANNELS[DMA_CHANNEL_COUNT];
-        volatile uint32_t CONFIG_STATUS;    // 0x40 
-    } DMA_CONFIG_TypeDef;
+#ifdef __cplusplus
+extern "C" {
 #endif
 
+#include <inttypes.h>
 
-#endif //
+typedef struct
+{
+    volatile uint32_t DST;      // 0x00
+    volatile uint32_t SRC;      // 0x04
+    volatile uint32_t LEN;      // 0x08        
+    volatile uint32_t CFG;      // 0x0c
+} DMA_CHANNEL_TypeDef;
+
+typedef struct
+{ 
+    DMA_CHANNEL_TypeDef CHANNELS[DMA_CHANNEL_COUNT];
+    volatile uint32_t CONFIG_STATUS;    // 0x40 
+} DMA_CONFIG_TypeDef;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // __ASSEMBLER__
+#endif // DMA_MC_H_INCLUDED

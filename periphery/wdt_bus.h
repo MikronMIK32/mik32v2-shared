@@ -8,15 +8,24 @@
 
 
 #ifndef __ASSEMBLER__
-    #include <inttypes.h>
 
-    typedef struct
-    {
-        volatile uint32_t TIMEOUT;
-        volatile uint32_t INT_CLEAR;
-        volatile uint32_t ENABLE;
-    } WDT_BUS_TypeDef;
+#ifdef __cplusplus
+extern "C" {
 #endif
 
+#include <inttypes.h>
+
+typedef struct
+{
+    volatile uint32_t TIMEOUT;
+    volatile uint32_t INT_CLEAR;
+    volatile uint32_t ENABLE;
+} WDT_BUS_TypeDef;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // __ASSEMBLER__
 #endif // OTP_H_INCLUDED
 

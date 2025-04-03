@@ -30,20 +30,28 @@
 
 
 #ifndef __ASSEMBLER__
-    #include <inttypes.h>
 
-    typedef struct
-    {
-        union
-        {
-            volatile uint8_t DATA8;
-            volatile uint16_t DATA16;
-            volatile uint32_t DATA32;            
-        };
-        volatile uint32_t POLY;               
-        volatile uint32_t CTRL;       
-    } CRC_TypeDef;
-
+#ifdef __cplusplus
+extern "C" {
 #endif
 
+#include <inttypes.h>
+
+typedef struct
+{
+    union
+    {
+        volatile uint8_t DATA8;
+        volatile uint16_t DATA16;
+        volatile uint32_t DATA32;            
+    };
+    volatile uint32_t POLY;               
+    volatile uint32_t CTRL;       
+} CRC_TypeDef;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // __ASSEMBLER__
 #endif // CRC_H_INCLUDED

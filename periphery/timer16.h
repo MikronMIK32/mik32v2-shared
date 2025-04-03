@@ -152,19 +152,28 @@
 #define TIMER16_CR_ENABLE_M                 (1 << TIMER16_CR_ENABLE_S)
 
 #ifndef __ASSEMBLER__
-    #include <inttypes.h>
 
-    typedef struct
-    {
-        volatile uint32_t ISR;
-        volatile uint32_t ICR;
-        volatile uint32_t IER;
-        volatile uint32_t CFGR;
-        volatile uint32_t CR;
-        volatile uint32_t CMP;
-        volatile uint32_t ARR;
-        volatile uint32_t CNT;
-    } TIMER16_TypeDef;
+#ifdef __cplusplus
+extern "C" {
 #endif
 
+#include <inttypes.h>
+
+typedef struct
+{
+    volatile uint32_t ISR;
+    volatile uint32_t ICR;
+    volatile uint32_t IER;
+    volatile uint32_t CFGR;
+    volatile uint32_t CR;
+    volatile uint32_t CMP;
+    volatile uint32_t ARR;
+    volatile uint32_t CNT;
+} TIMER16_TypeDef;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // __ASSEMBLER__
 #endif // TIMER16_H_INCLUDED
